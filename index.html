@@ -27,14 +27,14 @@
     .timeline {
       position: relative;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 20px auto;
     }
 
     .timeline::after {
       content: '';
       position: absolute;
       width: 6px;
-      background-color: #ddd;
+      background-color: #FF9F55;
       top: 0;
       bottom: 0;
       left: 50%;
@@ -113,6 +113,18 @@
 
     .timeline-content p {
       margin: 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+      color: #6C2DC7; /* Purple color */
+      text-transform: uppercase;
+    }
+
+    .section-title + section {
+      margin-bottom: 80px; /* Increased space between timelines */
     }
   </style>
 
