@@ -24,33 +24,95 @@
    <link rel="stylesheet" href="css/vendor.css">   
    
    <style>
-    .section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px 0;
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .card {
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: 10px;
-      width: 300px;
-      text-align: center;
-      transition: transform 0.2s;
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #ddd;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
     }
-    .card:hover {
-      transform: scale(1.05);
+
+    .timeline-entry {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
     }
-    .card h3 {
-      margin: 10px 0;
-      color: #333;
+
+    .timeline-entry::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid #FF9F55;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
     }
-    .card p {
-      margin: 5px 0;
-      color: #555;
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid white;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    .right::after {
+      left: -16px;
+    }
+
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .timeline-content h3 {
+      margin: 0 0 10px;
+    }
+
+    .timeline-content p {
+      margin: 0;
     }
   </style>
 
@@ -155,43 +217,54 @@ When I'm not geeking out over tech, you’ll find me flexing my creative muscles
    			</div>   			
 
    		</div>   	
-		   <section class="section" id="education">
+		   <section class="timeline" id="education">
 			<h2>Education</h2>
-			<div class="card">
-			  <h3>Purdue University</h3>
-			  <p>West Lafayette, IN, USA</p>
-			  <p>Master of Science in Autonomy</p>
-			  <p>Aug. 2024 – Present</p>
+			<div class="timeline-entry left">
+			  <div class="timeline-content">
+				<h3>Purdue University</h3>
+				<p>West Lafayette, IN, USA</p>
+				<p>Master of Science in Autonomy</p>
+				<p>Aug. 2024 – Present</p>
+			  </div>
 			</div>
-			<div class="card">
-			  <h3>Manipal Academy of Higher Education</h3>
-			  <p>Manipal, Karnataka, India</p>
-			  <p>Bachelor of Technology in Mechatronics</p>
-			  <p>Oct. 2020 – May 2024</p>
+			<div class="timeline-entry right">
+			  <div class="timeline-content">
+				<h3>Manipal Academy of Higher Education</h3>
+				<p>Manipal, Karnataka, India</p>
+				<p>Bachelor of Technology in Mechatronics</p>
+				<p>Oct. 2020 – May 2024</p>
+			  </div>
 			</div>
 		  </section>
 		  
-		  <section class="section" id="work-experience">
+		  <section class="timeline" id="work-experience">
 			<h2>Work Experience</h2>
-			<div class="card">
-			  <h3>Robotics Software Engineering Intern</h3>
-			  <p>Algobotix</p>
-			  <p>Bangalore, Karnataka, India</p>
-			  <p>May 2024 – July 2024</p>
+			<div class="timeline-entry left">
+			  <div class="timeline-content">
+				<h3>Robotics Software Engineering Intern</h3>
+				<p>Algobotix</p>
+				<p>Bangalore, Karnataka, India</p>
+				<p>May 2024 – July 2024</p>
+			  </div>
 			</div>
-			<div class="card">
-			  <h3>Research Intern</h3>
-			  <p>Robert Bosch Center for Cyber-Physical Systems, IISc (FOCAS Lab)</p>
-			  <p>Bangalore, Karnataka, India</p>
-			  <p>Jan 2024 – May 2024</p>
+			<div class="timeline-entry right">
+			  <div class="timeline-content">
+				<h3>Research Intern</h3>
+				<p>Robert Bosch Center for Cyber-Physical Systems, IISc (FOCAS Lab)</p>
+				<p>Bangalore, Karnataka, India</p>
+				<p>Jan 2024 – May 2024</p>
+			  </div>
 			</div>
-			<div class="card">
-			  <h3>Vehicle Engineering Intern</h3>
-			  <p>Ola Electric</p>
-			  <p>Bangalore, Karnataka, India</p>
-			  <p>June 2023 – Aug 2023</p>
+			<div class="timeline-entry left">
+			  <div class="timeline-content">
+				<h3>Vehicle Engineering Intern</h3>
+				<p>Ola Electric</p>
+				<p>Bangalore, Karnataka, India</p>
+				<p>June 2023 – Aug 2023</p>
+			  </div>
 			</div>
-		  </section>	
+		  </section>
+			  
    	
 
    	<div class="row button-section">
