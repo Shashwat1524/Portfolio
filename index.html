@@ -137,6 +137,40 @@
 	margin: 20px auto;
 	}
 
+		/* Container for the "About" content box */
+	.intro-info {
+	position: relative;
+	background-color: white;
+	padding: 20px;
+	border-radius: 12px; /* Rounded edges */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+	max-width: 800px; /* Adjust as needed */
+	margin: 0 auto; /* Center align */
+	}
+
+	/* Pointer or "tail" pointing towards the profile picture */
+	.intro-info::before {
+	content: '';
+	position: absolute;
+	top: 20px; /* Adjust based on where you want the tail to point */
+	left: -20px; /* Position of the tail relative to the box */
+	width: 0;
+	height: 0;
+	border-width: 10px;
+	border-style: solid;
+	border-color: transparent white transparent transparent; /* Tail color matches the box */
+	}
+
+	/* Styling for the profile picture */
+	.intro-info img {
+	float: left; /* Position to the left of the text */
+	margin-right: 20px; /* Space between image and text */
+	border-radius: 50%; /* Optional: if you want the profile picture to be circular */
+	width: 120px; /* Adjust size as needed */
+	height: 120px; /* Adjust size as needed */
+	}
+
+
   </style>
 
    <!-- script
@@ -223,22 +257,18 @@
    <!-- about section
    ================================================== -->
    <section id="about">  
-	
-   	<div class="row section-intro">
-   		<div class="col-twelve">
-
-   			<h5>About</h5>
-   			<h1>Let me introduce myself.</h1>
-
-   			<div class="intro-info">
-
-   				<img src="images/profile.jpeg" alt="Profile Picture">
-
-   				<p class="lead">I’m a Robotics and Automation enthusiast with a knack for blending hardware and software, diving into everything from the Robotics Operating System and Embedded systems to Electric Vehicle Tech. I'm all about pushing the limits of automation and super excited about the future of robotics and autonomous vehicles.
-
-When I'm not geeking out over tech, you’ll find me flexing my creative muscles as a freelance graphic designer, tackling all sorts of cool projects. Off the screen, I’m either shooting hoops on the basketball court, cheering on my favorite cricket teams, or hitting the gym to stay fit.</p>
-   			</div>   			
-   		</div>   	
+			<div class="row section-intro">
+			<div class="col-twelve">
+				<h5>About</h5>
+				<h1>Let me introduce myself.</h1>
+		
+				<div class="intro-info">
+				<img src="images/profile.jpeg" alt="Profile Picture">
+				<p class="lead">I’m a Robotics and Automation enthusiast with a knack for blending hardware and software, diving into everything from the Robotics Operating System and Embedded systems to Electric Vehicle Tech. I'm all about pushing the limits of automation and super excited about the future of robotics and autonomous vehicles.
+		
+				When I'm not geeking out over tech, you’ll find me flexing my creative muscles as a freelance graphic designer, tackling all sorts of cool projects. Off the screen, I’m either shooting hoops on the basketball court, cheering on my favorite cricket teams, or hitting the gym to stay fit.</p>
+				</div>   			
+			</div>   
 		   <div class="row">
 			<div class="col-twelve">
 			  <div class="section-title">
