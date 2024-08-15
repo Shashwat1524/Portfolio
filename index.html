@@ -30,45 +30,39 @@
 	padding: 40px 0; /* Adjust padding as needed */
 	}
 
-	.timeline {
-	max-width: 1200px;
-	margin: 20px auto;
-	}
-
-	/* Container for the "About" content */
+	/* Container for the "About" section */
 	.intro-info {
 		display: flex;
 		align-items: center;
 		background-color: white;
-		padding: 40px;
+		padding: 20px;
 		border-radius: 12px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		max-width: 1000px; /* Adjust width as needed */
+		max-width: 1000px;
 		margin: 0 auto;
 	}
 
-	/* Styling for the profile picture */
+	/* Styling for the rectangular profile picture */
 	.profile-pic {
-		width: 200px; /* Larger size */
-		height: 200px;
-		border-radius: 50%;
+		width: 250px; /* Width of the rectangular image */
+		height: auto; /* Maintain aspect ratio */
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-		transition: transform 0.3s ease; /* Smooth hover effect */
-		margin-right: 40px; /* Space between image and text */
+		transition: transform 0.3s ease;
+		margin-right: 30px; /* Space between image and text */
 	}
 
 	/* Hover effect for the profile picture */
 	.profile-pic:hover {
-		transform: scale(1.1); /* Slightly increase size on hover */
+		transform: scale(1.05); /* Slightly increase size on hover */
 	}
 
 	/* Styling for the text content */
 	.intro-info .lead {
-		flex-grow: 1;
-		font-size: 1.1em; /* Slightly larger font */
-		line-height: 1.6em; /* Increase line spacing */
-		color: #333; /* Darker text color for readability */
+		font-size: 1.1em;
+		line-height: 1.6em;
+		color: #333;
 	}
+
 
 
 
@@ -166,9 +160,15 @@
 		
 				<div class="intro-info">
 					<img class="profile-pic" src="images/profile.jpeg" alt="Profile Picture">
-					<p class="lead">I’m a Robotics and Automation enthusiast with a knack for blending hardware and software, diving into everything from the Robotics Operating System and Embedded systems to Electric Vehicle Tech. I'm all about pushing the limits of automation and super excited about the future of robotics and autonomous vehicles.
-					When I'm not geeking out over tech, you’ll find me flexing my creative muscles as a freelance graphic designer, tackling all sorts of cool projects. Off the screen, I’m either shooting hoops on the basketball court, cheering on my favorite cricket teams, or hitting the gym to stay fit.</p>
+					<div class="text-content">
+						<p class="lead">
+							I’m a Robotics and Automation enthusiast with a knack for blending hardware and software, diving into everything from the Robotics Operating System and Embedded systems to Electric Vehicle Tech. I'm all about pushing the limits of automation and super excited about the future of robotics and autonomous vehicles.
+							<br><br>
+							When I'm not geeking out over tech, you’ll find me flexing my creative muscles as a freelance graphic designer, tackling all sorts of cool projects. Off the screen, I’m either shooting hoops on the basketball court, cheering on my favorite cricket teams, or hitting the gym to stay fit.
+						</p>
+					</div>
 				</div>
+				
 			</div>   
 			</div>    
 
