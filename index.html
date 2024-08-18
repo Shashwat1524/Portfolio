@@ -38,102 +38,83 @@
 	}
 
 	/* Main container for text content */
-		.intro-container {
-            display: flex;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
+	.container {
+  width: 400px;
+  margin: 120px auto 120px;
+  background-color: #fff;
+  padding: 0 20px 20px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  text-align: center;
+}
+.container:hover .avatar-flip {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+.container:hover .avatar-flip img:first-child {
+  opacity: 0;
+}
+.container:hover .avatar-flip img:last-child {
+  opacity: 1;
+}
+.avatar-flip {
+  border-radius: 100px;
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  margin: auto;
+  top: -60px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 13px #f0f0f0;
+  -webkit-box-shadow: 0 0 0 13px #f0f0f0;
+  -moz-box-shadow: 0 0 0 13px #f0f0f0;
+}
+.avatar-flip img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+}
+.avatar-flip img:first-child {
+  z-index: 1;
+}
+.avatar-flip img:last-child {
+  z-index: 0;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  opacity: 0;
+}
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+h4 {
+  font-size: 13px;
+  color: #00baff;
+  letter-spacing: 1px;
+  margin-bottom: 25px
+}
+p {
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 20px;
+  color: #666;
+}
 
-        /* Styling for the profile picture with flip effect */
-        .profile-pic {
-            width: 300px; /* Set width for the rectangular image */
-            height: auto; /* Maintain aspect ratio */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            position: absolute;
-            left: -320px; /* Adjust to position image outside the box */
-            top: 50%;
-            transform: translateY(-50%);
-            perspective: 1000px; /* For 3D flip effect */
-        }
 
-        .avatar-flip {
-            border-radius: 8px;
-            overflow: hidden;
-            height: 100%;
-            width: 100%;
-            position: relative;
-            transition: transform 0.6s ease-in-out;
-            transform-style: preserve-3d;
-        }
 
-        .avatar-flip img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 8px;
-        }
-
-        .avatar-flip img:first-child {
-            transform: rotateY(0deg);
-        }
-
-        .avatar-flip img:last-child {
-            transform: rotateY(180deg);
-        }
-
-        .profile-pic:hover .avatar-flip {
-            transform: rotateY(180deg);
-        }
-
-        /* Styling for the text content */
-        .intro-text {
-            flex: 1; /* Take up remaining space */
-            font-size: 1.1em;
-            color: #333;
-            line-height: 1.6em;
-            padding-left: 340px; /* Ensure text doesn't overlap with the image */
-        }
-
-        h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 26px;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        @media (max-width: 1024px) {
-            .intro-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .profile-pic {
-                position: relative;
-                left: 0;
-                margin-bottom: 20px;
-                transform: translateY(0);
-            }
-
-            .intro-text {
-                padding-left: 0;
-                text-align: center;
-            }
-        }
 
 
 
@@ -229,22 +210,25 @@
 				<h5>About</h5>
 				<h1>Let me introduce myself.</h1>
 		
-				<div class="intro-container">
-					<div class="profile-pic">
-						<div class="avatar-flip">
-							<img src="profile-pic.jpg" alt="Profile Picture Front">
-							<img src="profile-pic-back.jpg" alt="Profile Picture Back">
-						</div>
-					</div>
+				<!-- <div class="intro-container">
+					<img class="profile-pic" src="images/profile.jpeg" alt="Profile Picture">
 					<div class="intro-text">
-						<h2>Let me introduce myself.</h2>
 						<p>
 							I’m a Robotics and Automation enthusiast with a knack for blending hardware and software, diving into everything from the Robotics Operating System and Embedded systems to Electric Vehicle Tech. I'm all about pushing the limits of automation and super excited about the future of robotics and autonomous vehicles.
-						</p>
-						<p>
 							When I'm not geeking out over tech, you’ll find me flexing my creative muscles as a freelance graphic designer, tackling all sorts of cool projects. Off the screen, I’m either shooting hoops on the basketball court, cheering on my favorite cricket teams, or hitting the gym to stay fit.
 						</p>
 					</div>
+				</div> -->
+
+				<div class="container">
+					<div class="avatar-flip">
+					  <img src="images/profile.jpeg" height="150" width="150">
+					  <img src="images/profile.jpeg" height="150" width="150">
+					</div>
+					<h2>John Smith</h2>
+					<h4>HOVER OVER CONTAINER</h4>
+					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna ip sum dolore.</p>
+					<p>Connec dolore ipsum faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.</p>
 				</div>
 				
 				
