@@ -30,70 +30,44 @@
 	padding: 40px 0; /* Adjust padding as needed */
 	}
 
-	body {
-    font-family: 'Poppins', sans-serif; /* Default font set to Poppins */
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+	/* Main container for text content */
+	.intro-container {
+		display: flex;
+		align-items: center;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+		background-color: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		position: relative;
+	}
 
-/* Main container for text content */
-.intro-container {
-    display: flex;
-    align-items: center;
-    max-width: 1200px; /* Increased max-width to utilize more space */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
+	/* Styling for the profile picture outside the box */
+	.profile-pic {
+		width: 300px; /* Set width for the rectangular image */
+		height: auto; /* Maintain aspect ratio */
+		margin-right: 20px; /* Space between image and text */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		transition: transform 0.3s ease;
+		position: absolute;
+		left: -320px; /* Adjust to position image outside the box */
+		top: 50%;
+		transform: translateY(-50%);
+	}
 
-/* Styling for the profile picture outside the box */
-.profile-pic {
-    width: 300px; /* Set width for the rectangular image */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between image and text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    position: absolute;
-    left: -320px; /* Adjust to position image outside the box */
-    top: 50%;
-    transform: translateY(-50%);
-}
+	/* Hover effect for the profile picture */
+	.profile-pic:hover {
+		transform: translateY(-50%) scale(1.05);
+	}
 
-/* Hover effect for the profile picture */
-.profile-pic:hover {
-    transform: translateY(-50%) scale(1.05);
-}
-
-/* Styling for the text content */
-.intro-text {
-    flex: 1; /* Take up remaining space */
-    font-size: 1.1em;
-    color: #333;
-    line-height: 1.6em;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .intro-container {
-        flex-direction: column;
-        align-items: center;
-        max-width: 800px;
-    }
-    .profile-pic {
-        position: static;
-        margin: 0 auto 20px auto;
-        left: 0;
-        transform: translateY(0) scale(1);
-    }
-    .intro-text {
-        text-align: center;
-    }
-}
-
+	/* Styling for the text content */
+	.intro-text {
+		flex: 1; /* Take up remaining space */
+		font-size: 1.1em;
+		color: #333;
+		line-height: 1.6em;
+	}
 
 
 
@@ -197,7 +171,6 @@
 					<div class="intro-text">
 						<p>
 							I’m a Robotics and Automation enthusiast with a knack for blending hardware and software, diving into everything from the Robotics Operating System and Embedded systems to Electric Vehicle Tech. I'm all about pushing the limits of automation and super excited about the future of robotics and autonomous vehicles.
-							<br><br>
 							When I'm not geeking out over tech, you’ll find me flexing my creative muscles as a freelance graphic designer, tackling all sorts of cool projects. Off the screen, I’m either shooting hoops on the basketball court, cheering on my favorite cricket teams, or hitting the gym to stay fit.
 						</p>
 					</div>
