@@ -30,47 +30,110 @@
 	padding: 40px 0; /* Adjust padding as needed */
 	}
 
+	body {
+    font-family: 'Poppins', sans-serif; /* Default font set to Poppins */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+	}
+
 	/* Main container for text content */
-	.intro-container {
-		display: flex;
-		align-items: center;
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 20px;
-		background-color: white;
-		border-radius: 12px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		position: relative;
-	}
+		.intro-container {
+            display: flex;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
 
-	/* Styling for the profile picture outside the box */
-	.profile-pic {
-		width: 300px; /* Set width for the rectangular image */
-		height: auto; /* Maintain aspect ratio */
-		margin-right: 20px; /* Space between image and text */
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-		transition: transform 0.3s ease;
-		position: absolute;
-		left: -320px; /* Adjust to position image outside the box */
-		top: 50%;
-		transform: translateY(-50%);
-	}
+        /* Styling for the profile picture with flip effect */
+        .profile-pic {
+            width: 300px; /* Set width for the rectangular image */
+            height: auto; /* Maintain aspect ratio */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            position: absolute;
+            left: -320px; /* Adjust to position image outside the box */
+            top: 50%;
+            transform: translateY(-50%);
+            perspective: 1000px; /* For 3D flip effect */
+        }
 
-	/* Hover effect for the profile picture */
-	.profile-pic:hover {
-		transform: translateY(-50%) scale(1.05);
-	}
+        .avatar-flip {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            transition: transform 0.6s ease-in-out;
+            transform-style: preserve-3d;
+        }
 
-	/* Styling for the text content */
-	.intro-text {
-		flex: 1; /* Take up remaining space */
-		font-size: 1.1em;
-		color: #333;
-		line-height: 1.6em;
-	}
+        .avatar-flip img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+        }
 
+        .avatar-flip img:first-child {
+            transform: rotateY(0deg);
+        }
 
+        .avatar-flip img:last-child {
+            transform: rotateY(180deg);
+        }
 
+        .profile-pic:hover .avatar-flip {
+            transform: rotateY(180deg);
+        }
+
+        /* Styling for the text content */
+        .intro-text {
+            flex: 1; /* Take up remaining space */
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6em;
+            padding-left: 340px; /* Ensure text doesn't overlap with the image */
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 26px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        @media (max-width: 1024px) {
+            .intro-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-pic {
+                position: relative;
+                left: 0;
+                margin-bottom: 20px;
+                transform: translateY(0);
+            }
+
+            .intro-text {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
 
 
 
@@ -167,10 +230,18 @@
 				<h1>Let me introduce myself.</h1>
 		
 				<div class="intro-container">
-					<img class="profile-pic" src="images/profile.jpeg" alt="Profile Picture">
+					<div class="profile-pic">
+						<div class="avatar-flip">
+							<img src="profile-pic.jpg" alt="Profile Picture Front">
+							<img src="profile-pic-back.jpg" alt="Profile Picture Back">
+						</div>
+					</div>
 					<div class="intro-text">
+						<h2>Let me introduce myself.</h2>
 						<p>
 							I’m a Robotics and Automation enthusiast with a knack for blending hardware and software, diving into everything from the Robotics Operating System and Embedded systems to Electric Vehicle Tech. I'm all about pushing the limits of automation and super excited about the future of robotics and autonomous vehicles.
+						</p>
+						<p>
 							When I'm not geeking out over tech, you’ll find me flexing my creative muscles as a freelance graphic designer, tackling all sorts of cool projects. Off the screen, I’m either shooting hoops on the basketball court, cheering on my favorite cricket teams, or hitting the gym to stay fit.
 						</p>
 					</div>
