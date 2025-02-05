@@ -579,7 +579,9 @@
 
 					   <div class="description-box">
 					      <h4>IIOT WATCH THAT MEASURES PULSE</h4>		      
-					      <p>Developed a smart watch with ESP32 that uses SEN-1157 Pulse Sensor for real-time heart rate monitoring. The heart beat was displayed SSD1306 OLED Display using I2C Communication. WiFi connectivity seamlessly displays the current time and related information. </p>
+					      <p>- Developed a smartwatch using ESP32 that integrates a SEN-1157 Pulse Sensor for real-time heart rate monitoring. </p>
+						  <p>- Displayed heartbeat data on an SSD1306 OLED display using I2C communication.</p>
+						  <p>-  Implemented WiFi connectivity to fetch and display the current time and related information, ensuring seamless real-time updates. </p>
 
 					      <div class="categories">ESP32, SEN-1157 Pulse Sensor,SSD1306 OLED Display</div>			               
 					   </div>
@@ -598,8 +600,12 @@
 				     	</div>      	
 
 					   <div class="description-box">
-					      <h4>QUADCOPTER DRONE</h4>		      
-					      <p>I developed a quadcopter by integrating MPU-6050-IMU sensor for stability and control, as well as IR sensor for object detection. Additionally, I implemented a closed-loop control system for the motors using a PID-based algorithm, effectively propelling the drone to achieve precise performance. </p>
+					      <h4>PID-Based Flight Controller for Quadcopter </h4>		      
+					      <p>- Developed a flight controller for a quadcopter by integrating an MPU-6050 IMU sensor with an Arduino. </p>
+						  <p>- Acquired gyroscope and accelerometer data from the MPU-6050 and processed it to compute roll, pitch, and yaw angles. </p>
+						  <p>- Implemented a complementary filter to fuse accelerometer and gyroscope data, compensating for gyroscope drift and improving attitude estimation. </p>
+						  <p>- Designed a PID-based flight controller to stabilize the quadcopter by adjusting motor speeds. </p>
+						  <p>- Generated PWM signals to control ESCs, which regulated the BLDC motors for stable flight dynamics. </p>
 
 					      <div class="categories">Arduino, MPU-6050, PID, Electronic Speed Control</div>			               
 					   </div>
@@ -658,7 +664,9 @@
 
 				  <div class="description-box">
 					 <h4>AUTONOMOUS DRONE BASED ON MOCAP</h4>		      
-					 <p>This project implements a flight controller for a drone using ESP-IDF (Espressif IoT Development Framework). The flight controller utilizes data from a Motion Capture (MOCAP) system, specifically the PhaseSpace Motion Capture System, to obtain roll, pitch, and yaw information of the drone through rigids.</p>
+					 <p> Designed and developed a drone flight controller using ESP32 integrated with Micro-ROS for real-time interfacing with a Motion Capture System, programmed in C and C++ using ESP-IDF.</p>
+					 <p>- Implemented an RTOS-based scheduler to acquire Motion Capture System data and activate fail-safe mechanisms during communication loss. </p>
+					 <p>- Integrated an MPU-6050 IMU (via I2C) and Lidar (via UART) to enable autonomous safe landing under fail-safe conditions.</p>
 
 					 <div class="categories">ESP-IDF, MICRO-ROS, MOCAP</div>			               
 				  </div>
@@ -678,8 +686,9 @@
 
 			  <div class="description-box">
 				 <h4>PRESCRIBED PERFORMANCE CONTROL USING DC MOTOR</h4>		      
-				 <p>This project explores the implementation and comparison of two control algorithms, Prescribed Performance Control (PPC) and Proportional-Integral-Derivative (PID) control, for regulating the speed of a DC motor. The control algorithms are implemented using Teensy 4.1 microcontroller and interfaced with MD30CR2 Motor Driver (30A) for controlling the DC motor.
-				 </p>
+				 <p>- Developed the embedded components for a Prescribed Performance Control (PPC) algorithm to regulate DC motor speed on a Teensy microcontroller, achieving 30% better stability compared to conventional PID control. </p>
+				 <p>- Implemented the PPC formula in code and processed the control output into pulse signals to drive the DC motor’s ESC, ensuring precise speed regulation.</p>
+				 
 
 				 <div class="categories">CONTROL SYSTEMS, TEENSY</div>			               
 			  </div>
@@ -698,10 +707,12 @@
 
 		  <div class="description-box">
 			 <h4>PAYLOAD SYSTEM FOR AUTONOMOUS DRONE</h4>		      
-			 <p>Designed and developed a payload system for autonomous drone navigation, incorporating Raspberry Pi, IMU, battery, and converter,
-				using CAD modeling and 3D printing techniques.</p>
+			 <p>- Redesigned the payload system for an autonomous drone using CAD and 3D printing, integrating a Raspberry Pi, IMU, and battery for optimized weight distribution and stability.</p> 
+			 <p>- Fabricated the payload structure using carbon fiber for durability and lightweight performance. </p>
+			 <p>- Designed and 3D-printed the casing for electronic components using SolidWorks and manufactured it with a Creality 3D printer. </p>
+			 <p>- Assembled the electronic circuitry by soldering components onto a breadboard and incorporating switches to enable controlled power distribution and system isolation for safety and debugging.</p>
 
-			 <div class="categories">CAD, PRODUCT DESIGN</div>			               
+			 <div class="categories">CAD, PRODUCT DESIGN, 3D Printing, Circuit Design</div>			               
 		  </div>
 
 	   <div class="link-box">
@@ -744,7 +755,7 @@
 		 <h4>A* Path Planning with PID Control on TurtleBot4</h4>		      
 		 <p>- Developed a path-planning system that loads and processes map data to construct graph structures for optimal path calculation using the A search algorithm*, a heuristic-driven approach that balances cost and efficiency.</p>
 			<p>- Implemented A search*, which combines Dijkstra’s algorithm (guaranteeing shortest paths) with a heuristic (Euclidean distance) to prioritize exploration, improving computational speed.</p>
-				<p>Designed a PID controller to ensure accurate path following by dynamically adjusting the robot's velocity and orientation.</p>
+				<p>- Designed a PID controller to ensure accurate path following by dynamically adjusting the robot's velocity and orientation.</p>
 					<p>- Validated the approach on TurtleBot3 simulations and a physical TurtleBot4, demonstrating reliable real-world performance.</p>
 
 		 <div class="categories">Python, ROS2, Rviz, Gazebo, Matplotlib</div>			               
