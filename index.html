@@ -671,6 +671,117 @@
             text-align: center;
         }
 
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form-section {
+            background: var(--bg-darker);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .contact-map-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            width: 100%;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-dark);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: var(--bg-dark);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .contact-email {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: var(--soft-white);
+        }
+
+        .contact-email a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-email a:hover {
+            color: var(--secondary-color);
+        }
+
+        .map-container {
+            width: 100%;
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+        }
+
+        .location-text {
+            text-align: center;
+            color: var(--soft-white);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        .location-text i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
         .contact-item {
             padding: 2rem;
             background: var(--bg-darker);
@@ -875,6 +986,10 @@
             }
 
             .linkedin-posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
                 grid-template-columns: 1fr;
             }
         }
@@ -1088,8 +1203,6 @@
                             <span class="tag">Python</span>
                             <span class="tag">RVIZ</span>
                             <span class="tag">Gazebo</span>
-                           
-                            
                         </div>
                         <a href="https://github.com/Shashwat1524/Ball-Following-Robot-using-Kalman-Filter" class="project-link" target="_blank" onclick="event.stopPropagation()">
                             <i class="fab fa-github"></i> View on GitHub
@@ -1138,7 +1251,6 @@
                             <span class="tag">ESP-IDF</span>
                             <span class="tag">Micro-ROS</span>
                             <span class="tag">LIDAR</span>
-
                         </div>
                         <a href="https://github.com/Shashwat1524/ESP_MOCAP_Drone_Flight_Controller" class="project-link" target="_blank" onclick="event.stopPropagation()">
                             <i class="fab fa-github"></i> View on GitHub
@@ -1290,25 +1402,41 @@
                 <h2>Get In Touch</h2>
                 <p class="subtitle">I'd love to hear from you</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>USA</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p><a href="mailto:ma.shashwat@gmail.com">ma.shashwat@gmail.com</a></p>
-                    <p><a href="mailto:smudugur@purdue.edu">smudugur@purdue.edu</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-link"></i>
-                    <h3>Social</h3>
-                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 0.5rem;">
-                        <a href="https://www.linkedin.com/in/shashwatma/" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Shashwat1524" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+            <div class="contact-container">
+                <div class="contact-form-section">
+                    <h3>Send Me a Message</h3>
+                    <form action="https://formspree.io/f/mjkpkopz" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                    <div class="contact-email">
+                        <p>Or email me directly at: <a href="mailto:ma.shashwat@gmail.com">ma.shashwat@gmail.com</a></p>
                     </div>
+                </div>
+                <div class="contact-map-section">
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48528.34917919262!2d-86.93738734999999!3d40.4237096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b5d9bb438b%3A0xb85eb3e6a5acc24c!2sWest%20Lafayette%2C%20IN!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="location-text"><i class="fas fa-map-marker-alt"></i> West Lafayette, Indiana</p>
                 </div>
             </div>
         </div>
@@ -1390,7 +1518,7 @@
             modal1: {
                 title: "Gesture Controlled Robotic Arm",
                 image: "images/portfolio/hmi_robot.gif",
-                tags: ["STM32", "FreeRTOS", "MediaPipe", "C"],
+                tags: ["STM32", "FreeRTOS", "MediaPipe"],
                 github: "https://github.com/Shashwat1524/Gesture-Controlled-Robotic-Arm",
                 description: [
                     "This system enables real-time control of a robotic arm using hand gestures detected via MediaPipe. The gestures are processed in Python and translated into control commands, which are transmitted over UART to an STM32 microcontroller.",
@@ -1504,6 +1632,29 @@
                     "This project demonstrates custom robot navigation using ROS2 Humble and NAV2, incorporating SLAM for mapping and path planning.",
                     "The robot utilizes Lidar sensor technology for accurate environmental perception.",
                     "Implemented custom navigation stack with NAV2 for autonomous navigation in complex environments."
+                ]
+            },
+            modal11: {
+                title: "IIoT Watch that Measures Pulse",
+                image: "images/portfolio/SMARTWATCHGIF.gif",
+                tags: ["ESP32", "SEN-1157", "OLED", "WiFi"],
+                github: null,
+                description: [
+                    "Developed a smartwatch using ESP32 that integrates a SEN-1157 Pulse Sensor for real-time heart rate monitoring.",
+                    "Displayed heartbeat data on an SSD1306 OLED display using I2C communication.",
+                    "Implemented WiFi connectivity to fetch and display the current time and related information, ensuring seamless real-time updates."
+                ]
+            },
+            modal12: {
+                title: "Payload System for Autonomous Drone",
+                image: "images/payload_autonomous.png",
+                tags: ["CAD", "3D Printing", "SolidWorks", "Circuit Design"],
+                github: null,
+                description: [
+                    "Redesigned the payload system for an autonomous drone using CAD and 3D printing, integrating a Raspberry Pi, IMU, and battery for optimized weight distribution and stability.",
+                    "Fabricated the payload structure using carbon fiber for durability and lightweight performance.",
+                    "Designed and 3D-printed the casing for electronic components using SolidWorks and manufactured it with a Creality 3D printer.",
+                    "Assembled the electronic circuitry by soldering components onto a breadboard and incorporating switches to enable controlled power distribution and system isolation for safety and debugging."
                 ]
             }
         };
