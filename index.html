@@ -198,7 +198,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 10%; /* shifts focus downward */
+            object-position: center 10%;
         }
 
         .hero-left h1 {
@@ -403,7 +403,7 @@
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
         }
 
@@ -448,13 +448,62 @@
         }
 
         .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: transparent;
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 1rem;
+        border: 1.5px solid var(--primary-color);
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        }
+
+        .project-link i {
+        color: var(--primary-color);
+        transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+        background: var(--primary-color);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .project-link:hover i {
+        color: var(--white);
+        }
+
+        /* LinkedIn Posts Section */
+        .linkedin-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .linkedin-post-card {
+            background: var(--bg-darker);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .linkedin-post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .linkedin-post-card iframe {
+            width: 100%;
+            border-radius: 10px;
+            border: none;
         }
 
         .certificates-grid {
@@ -580,6 +629,33 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
+        .modal-content.project-modal {
+            max-width: 1100px;
+        }
+
+        .modal-body-horizontal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .modal-image-container {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .modal-image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .modal-text-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
         .close-modal {
             position: absolute;
             right: 1.5rem;
@@ -588,6 +664,7 @@
             cursor: pointer;
             color: var(--soft-white);
             transition: color 0.3s;
+            z-index: 10;
         }
 
         .close-modal:hover {
@@ -641,6 +718,15 @@
             .hero-right h2 {
                 font-size: 2rem;
             }
+
+            .modal-body-horizontal {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-image-container {
+                position: relative;
+                top: 0;
+            }
         }
 
         @media (max-width: 768px) {
@@ -684,6 +770,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+
+            .linkedin-posts-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -694,6 +784,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#featured-posts">Featured Posts</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -728,7 +819,7 @@
                 <h3>About Me</h3>
                 <p class="bio">
                     I love bringing hardware and software together, 
-                    whether it’s tinkering with low-level firmware, exploring computer memory 
+                    whether it's tinkering with low-level firmware, exploring computer memory 
                     and architecture, or building robots. 
                     I enjoy devising algorithms for path planning, 
                     tracking, and control and tying them together so everything comes to life.
@@ -740,26 +831,6 @@
                     <i class="fas fa-download"></i> Download Resume
                 </a>
 
-                <!-- <div class="info-section">
-                    <div class="info-block">
-                        <h3>Interests</h3>
-                        <div class="info-item">
-                            <i class="fas fa-robot"></i>
-                            <span>Robotics & Automation</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-microchip"></i>
-                            <span>Embedded Systems</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-car"></i>
-                            <span>Electric Vehicle Technology</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-code"></i>
-                            <span>ROS2 Development</span>
-                        </div>
-                    </div> -->
                 <div class="info-section">
                     <div class="info-block">
                         <h3>Skills</h3>
@@ -838,7 +909,7 @@
                             <span class="tag">MediaPipe</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/Gesture-Controlled-Robotic-Arm" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -854,7 +925,7 @@
                             <span class="tag">Python</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/Traffic_Sign_Classification_Cross_Stage_Partial_Network" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -870,7 +941,7 @@
                             <span class="tag">Gazebo</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/A-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -886,7 +957,7 @@
                             <span class="tag">RVIZ</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/RRT-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -902,7 +973,7 @@
                             <span class="tag">Kalman Filter</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/Ball-Following-Robot-using-Kalman-Filter" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -918,7 +989,7 @@
                             <span class="tag">CAN</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/Dashboard-Design-Based-on-Python-and-CAN-Communication" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -947,7 +1018,7 @@
                             <span class="tag">MoCap</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/ESP_MOCAP_Drone_Flight_Controller" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -976,9 +1047,39 @@
                             <span class="tag">SLAM</span>
                         </div>
                         <a href="https://github.com/Shashwat1524/Custom-Robot-navigation-using-NAV2-and-ROS2-Humble" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-posts">
+        <div class="section-content">
+            <div class="section-title">
+                <h2>Featured Posts</h2>
+                <p class="subtitle">Recent updates from LinkedIn</p>
+            </div>
+            <div class="linkedin-posts-grid">
+                <div class="linkedin-post-card">
+                    <iframe 
+                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328827280875495425" 
+                        height="600" 
+                        frameborder="0" 
+                        allowfullscreen="" 
+                        title="LinkedIn Post 1">
+                    </iframe>
+                </div>
+                
+                <div class="linkedin-post-card">
+                    <iframe 
+                        src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7364469012971393025" 
+                        height="600" 
+                        frameborder="0" 
+                        allowfullscreen="" 
+                        title="LinkedIn Post 2">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -1056,28 +1157,6 @@
                         <a href="https://www.linkedin.com/in/shashwatma/" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/Shashwat1524" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;"><i class="fab fa-github"></i></a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="featured-post">
-        <div class="section-content">
-            <div class="section-title">
-                <h2>Featured Post</h2>
-                <p class="subtitle">Recent updates from LinkedIn</p>
-            </div>
-            <div style="display: flex; justify-content: center; align-items: center; padding: 2rem 0;">
-                <div style="background: var(--bg-darker); border-radius: 15px; padding: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); max-width: 550px; width: 100%;">
-                    <iframe 
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328827280875495425?collapsed=1" 
-                        height="542" 
-                        width="100%" 
-                        frameborder="0" 
-                        allowfullscreen="" 
-                        title="Embedded post"
-                        style="border-radius: 10px;">
-                    </iframe>
                 </div>
             </div>
         </div>
@@ -1282,33 +1361,37 @@
             if (!data) return;
 
             let modalHTML = `
-                <img src="${data.image}" class="modal-image" alt="${data.title}">
-                <h3>${data.title}</h3>
-                <div class="project-tags">
-                    ${data.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                <div class="modal-body-horizontal">
+                    <div class="modal-image-container">
+                        <img src="${data.image}" alt="${data.title}">
+                        <div class="project-tags" style="margin-top: 1rem;">
+                            ${data.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        ${data.github ? `
+                            <div style="margin-top: 1.5rem;">
+                                <a href="${data.github}" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        ` : ''}
+                    </div>
+                    <div class="modal-text-content">
+                        <h3>${data.title}</h3>
+                        ${data.description.map(desc => `<p>${desc}</p>`).join('')}
+                    </div>
                 </div>
             `;
 
-            data.description.forEach(desc => {
-                modalHTML += `<p>${desc}</p>`;
-            });
-
-            if (data.github) {
-                modalHTML += `
-                    <div style="margin-top: 2rem;">
-                        <a href="${data.github}" class="btn btn-primary" target="_blank">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                `;
-            }
-
+            const modalContent = document.querySelector('#projectModal .modal-content');
+            modalContent.classList.add('project-modal');
             document.getElementById('modalBody').innerHTML = modalHTML;
             document.getElementById('projectModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
+            const modalContent = document.querySelector('#projectModal .modal-content');
+            modalContent.classList.remove('project-modal');
             document.getElementById('projectModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
@@ -1332,6 +1415,7 @@
         window.onclick = function(event) {
             const projectModal = document.getElementById('projectModal');
             const certificateModal = document.getElementById('certificateModal');
+            
             if (event.target == projectModal) {
                 closeModal();
             }
