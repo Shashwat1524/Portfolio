@@ -1113,15 +1113,15 @@
             
             <div class="project-filters">
                 <button class="filter-btn active" onclick="filterProjects('all')">All</button>
-                <button class="filter-btn" onclick="filterProjects('ros2')">ROS2</button>
-                <button class="filter-btn" onclick="filterProjects('embedded')">Embedded</button>
+                <button class="filter-btn" onclick="filterProjects('c-cpp')">C/C++</button>
                 <button class="filter-btn" onclick="filterProjects('python')">Python</button>
-                <button class="filter-btn" onclick="filterProjects('control')">Control Systems</button>
-                <button class="filter-btn" onclick="filterProjects('ml')">Machine Learning</button>
+                <button class="filter-btn" onclick="filterProjects('embedded')">Embedded</button>
+                <button class="filter-btn" onclick="filterProjects('path-planning')">Path Planning</button>
+                <button class="filter-btn" onclick="filterProjects('computer-vision')">Computer Vision</button>
             </div>
 
             <div class="projects-grid">
-                <div class="project-card" onclick="openModal('modal1')" data-category="embedded ros2 python">
+                <div class="project-card" onclick="openModal('modal1')" data-category="embedded c-cpp python computer-vision">
                     <img src="images/portfolio/hmi_robot.gif" alt="Gesture Control" class="project-image">
                     <div class="project-content">
                         <h3>Gesture Controlled Robotic Arm</h3>
@@ -1138,7 +1138,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal2')" data-category="ml python">
+                <div class="project-card" onclick="openModal('modal2')" data-category="python computer-vision">
                     <img src="images/portfolio/traffic_sign_class.jpg" alt="Traffic Sign" class="project-image">
                     <div class="project-content">
                         <h3>Traffic Sign Classification Using CSP</h3>
@@ -1155,7 +1155,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal3')" data-category="ros2 python control">
+                <div class="project-card" onclick="openModal('modal3')" data-category="python path-planning">
                     <img src="images/portfolio/ttbot4_astar.gif" alt="A* Planning" class="project-image">
                     <div class="project-content">
                         <h3>A* Path Planning with PID Control</h3>
@@ -1173,7 +1173,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal4')" data-category="ros2 python control">
+                <div class="project-card" onclick="openModal('modal4')" data-category="python path-planning">
                     <img src="images/portfolio/rrt.gif" alt="RRT" class="project-image">
                     <div class="project-content">
                         <h3>RRT* Path Planning on TurtleBot3</h3>
@@ -1191,7 +1191,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal5')" data-category="ros2 python control">
+                <div class="project-card" onclick="openModal('modal5')" data-category="python computer-vision">
                     <img src="images/portfolio/ball_tracking.gif" alt="Ball Tracking" class="project-image">
                     <div class="project-content">
                         <h3>Ball-Following Robot with Kalman Filter</h3>
@@ -1210,7 +1210,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal6')" data-category="embedded python">
+                <div class="project-card" onclick="openModal('modal6')" data-category="embedded c-cpp python">
                     <img src="images/portfolio/motodash.gif" alt="Dashboard" class="project-image">
                     <div class="project-content">
                         <h3>E-Motorbike Telemetry Dashboard</h3>
@@ -1227,7 +1227,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal7')" data-category="embedded control">
+                <div class="project-card" onclick="openModal('modal7')" data-category="embedded c-cpp">
                     <img src="images/portfolio/QUADCOPTER.gif" alt="Quadcopter" class="project-image">
                     <div class="project-content">
                         <h3>PID-Based Flight Controller for Quadcopter</h3>
@@ -1241,7 +1241,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal8')" data-category="embedded ros2">
+                <div class="project-card" onclick="openModal('modal8')" data-category="embedded c-cpp">
                     <img src="images/aut_drone.jpg" alt="Autonomous Drone" class="project-image">
                     <div class="project-content">
                         <h3>Autonomous Drone Based on MoCap</h3>
@@ -1258,7 +1258,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal9')" data-category="embedded control">
+                <div class="project-card" onclick="openModal('modal9')" data-category="embedded c-cpp">
                     <img src="images/portfolio/STM32.jpeg" alt="Temperature Control" class="project-image">
                     <div class="project-content">
                         <h3>Smart Temperature Control for Hydroponics</h3>
@@ -1272,7 +1272,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal10')" data-category="ros2 python">
+                <div class="project-card" onclick="openModal('modal10')" data-category="python path-planning">
                     <img src="images/ros_nav2.jpeg" alt="NAV2" class="project-image">
                     <div class="project-content">
                         <h3>Custom Robot Navigation with NAV2</h3>
@@ -1289,7 +1289,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="openModal('modal11')" data-category="embedded">
+                <div class="project-card" onclick="openModal('modal11')" data-category="embedded c-cpp">
                     <img src="images/portfolio/SMARTWATCHGIF.gif" alt="IIoT Watch" class="project-image">
                     <div class="project-content">
                         <h3>IIoT Watch that Measures Pulse</h3>
