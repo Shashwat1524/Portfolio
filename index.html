@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shashwat- Portfolio</title>
-        <!-- Google tag (gtag.js) -->
+        
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E0R3DSRN1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -1045,7 +1045,7 @@
                 <p class="title">Robotics Software and Firmware Engineer</p>
                 <p class="university">Purdue University</p>
                 <div class="hero-social">
-                    <a href="mailto:ma.shashwat@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#5b363a7528333a28332c3a2f1b3c363a323775383436" title="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://github.com/Shashwat1524" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/shashwatma/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
@@ -1145,6 +1145,23 @@
             </div>
 
             <div class="projects-grid">
+                <div class="project-card" onclick="openModal('modalAgri')" data-category="path-planning c-cpp">
+                    <video class="project-image" autoplay loop muted playsinline>
+                            <source src="images/portfolio/path_planning.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-content">
+                        <h3>GPS-Guided Autonomous Agricultural Robot</h3>
+                        <p>Architected a full autonomy stack for a differential-drive agricultural robot featuring GNSS localization, Bézier curve trajectory generation, and Pure Pursuit path tracking across 100m+ orchard rows.</p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Strucutured Text</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">GNSS</span>
+                            <span class="tag">Path Planning</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card" onclick="openModal('modal1')" data-category="embedded c-cpp python computer-vision">
                     <img src="images/portfolio/hmi_robot.gif" alt="Gesture Control" class="project-image">
                     <div class="project-content">
@@ -1159,6 +1176,21 @@
                         <a href="https://github.com/Shashwat1524/Gesture-Controlled-Robotic-Arm" class="project-link" target="_blank" onclick="event.stopPropagation()">
                             <i class="fab fa-github"></i> View on GitHub
                         </a>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openModal('modalAMR')" data-category="python path-planning computer-vision">
+                    
+                    <video class="project-image" autoplay loop muted playsinline>
+                            <source src="images/portfolio/amr_cobot.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-content">
+                        <h3>Autonomous AMR &amp; Cobot Manufacturing Cell</h3>
+                        <p>Integrated two TECHMAN ROBOT cobots with a Fetch Freight100 AMR using Node-RED and MODBUS to fully automate a part assembly workflow — no human intervention required.</p>
+                        <div class="project-tags">
+                            <span class="tag">Node-RED</span>
+                            <span class="tag">MODBUS</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1447,7 +1479,7 @@
                         </button>
                     </form>
                     <div class="contact-email">
-                        <p>Or email me directly at: <a href="mailto:ma.shashwat@gmail.com">ma.shashwat@gmail.com</a></p>
+                        <p>Or email me directly at: <a href="/cdn-cgi/l/email-protection#395458174a51584a514e584d795e54585055175a5654"><span class="__cf_email__" data-cfemail="2e434f005d464f5d46594f5a6e49434f4742004d4143">[email&#160;protected]</span></a></p>
                     </div>
                 </div>
                 <div class="contact-map-section">
@@ -1486,7 +1518,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
@@ -1539,6 +1571,30 @@
         });
 
         const projectData = {
+            modalAgri: {
+                title: "GPS-Guided Autonomous Agricultural Robot",
+                image: "images/portfolio/path_planning.mp4",
+                tags: [ "Strucutured Text", "Docker", "GNSS", "Path Planning","C++",],
+                github: null,
+                description: [
+                    "Architected a complete autonomy stack for a GPS-guided differential-drive agricultural robot, designed for precise row-following missions in orchard environments spanning 100m+.",
+                    "Implemented GNSS-based localization achieving 45cm accuracy, fusing raw GPS data with heading estimates to maintain a reliable position fix throughout the mission.",
+                    "Designed a Bézier curve trajectory generation pipeline with real-time optimization using the bisection method and Lagrange interpolation, allowing the robot to compute smooth, dynamically feasible paths that adapt to field geometry on the fly.",
+                    "Integrated a Pure Pursuit controller for path tracking, continuously computing the lookahead point on the trajectory and issuing curvature commands to the differential drive to minimize cross-track error."
+                ]
+            },
+            modalAMR: {
+                title: "Autonomous AMR & Cobot Manufacturing Cell",
+                image: "images/portfolio/amr_cobot.mp4",
+                tags: ["Node-RED", "MODBUS"],
+                github: null,
+                description: [
+                    "Integrated two TECHMAN ROBOT cobots and a Fetch Robotics (Zebra Technologies) Freight100 AMR into a fully automated manufacturing cell, using Node-RED as the central orchestration layer and MODBUS for cobot communication.",
+                    "The workflow begins with the first cobot loading a part onto the Freight100's cart. The AMR then autonomously navigates to a second cobot station equipped with a gripper, which adds a component to the part. Finally, the AMR returns the finished assembly back to the first robot — entirely without human intervention.",
+                    "Implemented machine vision to detect the exact position of a cup holder relative to a label at distance, enabling precise pick-and-place operations regardless of minor positional variation on the cart.",
+                    "Demonstrated seamless multi-robot coordination across different platforms (cobot + AMR) using industrial protocols, showcasing a scalable approach to flexible manufacturing automation."
+                ]
+            },
             modal1: {
                 title: "Gesture Controlled Robotic Arm",
                 image: "images/portfolio/hmi_robot.gif",
@@ -1776,3 +1832,9 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
