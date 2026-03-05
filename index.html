@@ -584,7 +584,7 @@
         /* LinkedIn Posts Section */
         .linkedin-posts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -1381,14 +1381,16 @@
                 <h2>Featured Posts</h2>
                 <p class="subtitle">Recent updates from LinkedIn</p>
             </div>
-
-            <div class="linkedin-post-card">
-
-                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7434718524847116288?collapsed=1" 
-                    height="770" width="504" frameborder="0" allowfullscreen="" title="L post 3"></iframe>
-            </div>
-
             <div class="linkedin-posts-grid">
+            
+                <div class="linkedin-post-card">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7434718524847116288?collapsed=1" 
+                        height="600" 
+                        frameborder="0" allowfullscreen="" title="L post 3">
+                    </iframe>
+                </div>
+
+            
                 <div class="linkedin-post-card">
                     <iframe 
                         src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328827280875495425" 
@@ -1408,7 +1410,7 @@
                         title="LinkedIn Post 2">
                     </iframe>
                 </div>
-
+            </div>
                 
             </div>
         </div>
