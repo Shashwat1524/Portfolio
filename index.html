@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shashwat- Portfolio</title>
-        
+    <title>Shashwat — Robotics Engineer</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E0R3DSRN1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,1116 +12,406 @@
       gtag('config', 'G-9E0R3DSRN1');
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary-color: #6366f1;
-            --secondary-color: #8b5cf6;
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --accent-cyan: #06b6d4;
+            --accent-teal: #0d9488;
             --text-dark: #1e293b;
             --soft-white: #94a3b8;
-            --bg-dark: #1e293b;
-            --bg-darker: #0f172a;
-            --white: #ffffff;
-            --soft-white: #e0e0e0;   
+            --bg-dark: #050d1a;
+            --bg-darker: #020912;
+            --bg-card: #081526;
+            --bg-mid: #060f1f;
+            --white: #e8f0fe;
+            --border: rgba(59, 130, 246, 0.15);
+            --glow: rgba(59, 130, 246, 0.3);
         }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--white);
-            background: var(--bg-darker);
-            overflow-x: hidden;
-        }
+        body { font-family: 'DM Sans', -apple-system, sans-serif; line-height: 1.6; color: var(--white); background: var(--bg-darker); overflow-x: hidden; }
+        section:nth-of-type(even) { background: var(--bg-darker); }
+        section:nth-of-type(odd) { background: var(--bg-dark); }
 
-        section:nth-of-type(even) {
-            background: var(--bg-darker);
-        }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(2, 9, 18, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); z-index: 1000; padding: 1rem 0; border-bottom: 1px solid rgba(59,130,246,0.08); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { font-family: 'Space Mono', monospace; font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: 0.05em; }
+        .logo span { color: var(--primary-color); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--soft-white); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.04em; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--white); }
+        .nav-icons { display: flex; gap: 1rem; align-items: center; }
+        .nav-icons a, .nav-icons button { color: var(--soft-white); font-size: 1.2rem; background: none; border: none; cursor: pointer; transition: color 0.3s; }
+        .nav-icons a:hover, .nav-icons button:hover { color: var(--white); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--white); }
 
-        section:nth-of-type(odd) {
-            background: var(--bg-dark);
-        }
+        .hero { min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: #020912; }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0; }
+        .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%); top: -100px; left: -100px; animation: orbFade 1.2s 0.1s ease forwards, orbFloat1 18s 1.3s ease-in-out infinite; }
+        .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%); top: 20%; right: -80px; animation: orbFade 1.2s 0.3s ease forwards, orbFloat2 22s 1.5s ease-in-out infinite; }
+        .orb-3 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 70%); bottom: 0; left: 30%; animation: orbFade 1.2s 0.5s ease forwards, orbFloat3 16s 1.7s ease-in-out infinite; }
+        .orb-4 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(13,148,136,0.1) 0%, transparent 70%); top: 50%; left: 10%; animation: orbFade 1.2s 0.6s ease forwards, orbFloat4 20s 1.8s ease-in-out infinite; }
+        .orb-5 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(139,92,246,0.09) 0%, transparent 70%); bottom: 20%; right: 15%; animation: orbFade 1.2s 0.7s ease forwards, orbFloat1 14s 1.9s ease-in-out infinite reverse; }
+        @keyframes orbFade { to { opacity: 1; } }
+        @keyframes orbFloat1 { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(30px,-40px) scale(1.04);} 66%{transform:translate(-20px,20px) scale(0.97);} }
+        @keyframes orbFloat2 { 0%,100%{transform:translate(0,0) scale(1);} 40%{transform:translate(-40px,30px) scale(1.06);} 70%{transform:translate(20px,-20px) scale(0.96);} }
+        @keyframes orbFloat3 { 0%,100%{transform:translate(0,0) scale(1);} 30%{transform:translate(20px,-30px) scale(1.03);} 70%{transform:translate(-30px,40px) scale(0.98);} }
+        @keyframes orbFloat4 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(40px,-20px);} }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--bg-darker);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+        .hero-noise { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); background-size: 200px 200px; opacity: 0.35; pointer-events: none; z-index: 1; }
+        .hero-grid { position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg,transparent,transparent 38px,rgba(59,130,246,0.035) 38px,rgba(59,130,246,0.035) 39px); z-index: 1; pointer-events: none; }
+        .hero-glow-line { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,transparent 0%,rgba(59,130,246,0.25) 30%,rgba(6,182,212,0.3) 50%,rgba(59,130,246,0.25) 70%,transparent 100%); z-index: 2; }
+        #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero-content { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 7rem 2.5rem 5rem; max-width: 560px; width: 100%; margin: 0 auto; opacity: 0; transform: translateY(24px); animation: heroReveal 1s 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        @keyframes heroReveal { to { opacity: 1; transform: translateY(0); } }
+
+        .hero-avatar-wrap { position: relative; width: 120px; height: 120px; margin-bottom: 1.6rem; flex-shrink: 0; }
+        .hero-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; object-position: center 10%; border: 1.5px solid rgba(59,130,246,0.3); position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(1.18); display: block; }
+        .hero-avatar-fallback { width: 88px; height: 88px; border-radius: 50%; background: #0a1f3a; border: 1.5px solid rgba(59,130,246,0.3); position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); display: none; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 1.1rem; color: var(--primary-color); }
+
+        .orbit-ring { position: absolute; border-radius: 50%; border: 1px solid transparent; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+        .orbit-ring-1 { width: 108px; height: 108px; border-top-color: rgba(59,130,246,0.55); border-right-color: rgba(59,130,246,0.15); animation: orbitSpin1 5s linear infinite; }
+        .orbit-ring-2 { width: 120px; height: 120px; border-bottom-color: rgba(6,182,212,0.5); border-left-color: rgba(6,182,212,0.12); animation: orbitSpin1 8s linear infinite reverse; }
+        .orbit-dot { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: rgba(59,130,246,0.95); top: 50%; left: 50%; animation: dotTravel1 5s linear infinite; }
+        .orbit-dot-2 { width: 4px; height: 4px; background: rgba(6,182,212,0.95); animation: dotTravel2 8s linear infinite reverse; }
+        @keyframes orbitSpin1 { to { transform: translate(-50%,-50%) rotate(360deg); } }
+        @keyframes dotTravel1 { from{transform:translate(calc(54px - 2.5px),-2.5px) rotate(0deg) translateX(-54px);} to{transform:translate(calc(54px - 2.5px),-2.5px) rotate(360deg) translateX(-54px);} }
+        @keyframes dotTravel2 { from{transform:translate(calc(60px - 2px),-2px) rotate(0deg) translateX(-60px);} to{transform:translate(calc(60px - 2px),-2px) rotate(360deg) translateX(-60px);} }
+
+        .hero-name { font-family: 'Space Mono', monospace; font-size: 1.9rem; font-weight: 700; color: var(--white); margin: 0 0 0.35rem; letter-spacing: 0.01em; }
+        .hero-name span { color: var(--primary-color); }
+
+        /* ── Role line with animated keyword highlights ── */
+        .hero-role {
+            font-size: 0.78rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
+            margin: 0 0 0.3rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            justify-content: center;
+            gap: 0.55rem;
+            flex-wrap: wrap;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--soft-white);
-            font-weight: 500;
+        .hero-role-word {
+            color: var(--accent-cyan);
+            position: relative;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--white);
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .nav-icons a, .nav-icons button {
-            color: var(--soft-white);
-            font-size: 1.2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .nav-icons a:hover, .nav-icons button:hover {
-            color: var(--white);
-        }
-
-        .mobile-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--white);
-        }
-
-        .hero {
-            min-height: 100vh;
-            width: 100%;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #2d1b4e 50%, #1a1f3a 75%, #0a0e27 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            25% { background-position: 50% 50%; }
-            50% { background-position: 100% 50%; }
-            75% { background-position: 50% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%);
-            border-radius: 50%;
-            top: -300px;
-            right: -200px;
-            animation: float 25s ease-in-out infinite;
-            filter: blur(40px);
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(99, 102, 241, 0.08) 40%, transparent 70%);
-            border-radius: 50%;
-            bottom: -250px;
-            left: -150px;
-            animation: float 20s ease-in-out infinite reverse;
-            filter: blur(50px);
-        }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translate(0, 0) rotate(0deg) scale(1); 
-            }
-            33% { 
-                transform: translate(40px, -40px) rotate(120deg) scale(1.1); 
-            }
-            66% { 
-                transform: translate(-30px, 30px) rotate(240deg) scale(0.9); 
-            }
-        }
-
-        .hero .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
-
-        .hero .shape {
-            position: absolute;
-            opacity: 0.03;
-            animation: floatShapes 30s ease-in-out infinite;
-        }
-
-        .hero .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            border: 2px solid var(--primary-color);
-            border-radius: 50%;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-            animation-duration: 25s;
-        }
-
-        .hero .shape:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--secondary-color);
-            top: 60%;
-            right: 15%;
-            animation-delay: 5s;
-            animation-duration: 30s;
-        }
-
-        .hero .shape:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            border: 2px solid var(--primary-color);
-            border-radius: 50%;
-            bottom: 15%;
-            left: 20%;
-            animation-delay: 10s;
-            animation-duration: 35s;
-        }
-
-        @keyframes floatShapes {
-            0%, 100% { 
-                transform: translate(0, 0) rotate(0deg); 
-            }
-            25% { 
-                transform: translate(20px, -30px) rotate(90deg); 
-            }
-            50% { 
-                transform: translate(-15px, 20px) rotate(180deg); 
-            }
-            75% { 
-                transform: translate(30px, -10px) rotate(270deg); 
-            }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 8rem 2rem 4rem;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .hero-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .profile-circle {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3),
-                        0 0 60px rgba(99, 102, 241, 0.2),
-                        inset 0 0 20px rgba(99, 102, 241, 0.1);
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .profile-circle::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(99, 102, 241, 0.1),
-                transparent
-            );
-            animation: shimmer 3s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .profile-circle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.5),
-                        0 0 80px rgba(99, 102, 241, 0.3),
-                        inset 0 0 30px rgba(99, 102, 241, 0.15);
-        }
-
-        .profile-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 10%;
-        }
-
-        .hero-left h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-left .chinese-name {
-            font-size: 1.5rem;
-            color: var(--soft-white);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-left .title {
-            font-size: 1.1rem;
-            color: var(--soft-white);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-left .university {
-            font-size: 1rem;
-            color: var(--soft-white);
-            margin-bottom: 2rem;
-        }
-
-        .hero-social {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero-social a {
-            color: var(--soft-white);
-            font-size: 2rem;
-            transition: all 0.3s;
-        }
-
-        .hero-social a:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .hero-right {
-            padding: 0;
-        }
-
-        .hero-right h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-
-        .hero-right .bio {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--soft-white);
-            margin-bottom: 2rem;
-            text-align: justify;
-        }
-
-        .resume-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 50px;
-            color: var(--soft-white);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-bottom: 2rem;
-        }
-
-        .resume-download:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
-        }
-
-        .info-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 1rem;
-        }
-
-        .info-block h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            color: var(--soft-white);
-        }
-
-        .info-item i {
-            margin-top: 0.25rem;
-            color: var(--primary-color);
-        }
-
-        .education-item {
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .education-item i {
-            margin-top: 0.25rem;
-            color: var(--primary-color);
-        }
-
-        .education-item .degree {
-            color: var(--white);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .education-item .institution {
-            color: var(--soft-white);
-            font-size: 0.95rem;
-        }
-
-        section {
-            padding: 5rem 2rem;
-            width: 100%;
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-
-        .section-title .subtitle {
-            color: var(--soft-white);
-            font-size: 1.1rem;
-        }
-
-        .project-filters {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-darker);
-            color: var(--soft-white);
-            border: 2px solid transparent;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .filter-btn:hover {
-            color: var(--white);
-            border-color: var(--primary-color);
-        }
-
-        .filter-btn.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-darker);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background: #000;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-
-        .project-content p {
-            color: var(--soft-white);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .tag {
-            background: rgba(99, 102, 241, 0.2);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--soft-white);
-            border: 1px solid var(--primary-color);
-        }
-
-        .project-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: transparent;
-        color: var(--white);
-        text-decoration: none;
-        font-weight: 600;
-        margin-top: 1rem;
-        border: 1.5px solid var(--primary-color);
-        border-radius: 25px;
-        transition: all 0.3s ease;
-        }
-
-        .project-link i {
-        color: var(--primary-color);
-        transition: color 0.3s ease;
-        }
-
-        .project-link:hover {
-        background: var(--primary-color);
-        color: var(--white);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
-        }
-
-        .project-link:hover i {
-        color: var(--white);
-        }
-
-        /* LinkedIn Posts Section */
-        .linkedin-posts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .linkedin-post-card {
-            background: var(--bg-darker);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-        }
-
-        .linkedin-post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-        }
-
-        .linkedin-post-card iframe {
-            width: 100%;
-            border-radius: 10px;
-            border: none;
-        }
-
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .certificate-card {
-            background: var(--bg-darker);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        .certificate-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .certificate-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+        /* Glitch/flicker effect on each word, staggered */
+        .hero-role-word:nth-child(1) { animation: wordFlicker 6s 0s ease-in-out infinite; }
+        .hero-role-word:nth-child(3) { animation: wordFlicker 6s 1.8s ease-in-out infinite; }
+        .hero-role-word:nth-child(5) { animation: wordFlicker 6s 3.6s ease-in-out infinite; }
+
+        @keyframes wordFlicker {
+            0%, 85%, 100% { color: var(--accent-cyan); text-shadow: none; opacity: 1; }
+            87% { opacity: 0.4; color: #fff; }
+            89% { opacity: 1; color: var(--accent-cyan); text-shadow: 0 0 8px rgba(6,182,212,0.8); }
+            91% { opacity: 0.6; }
+            93% { opacity: 1; color: var(--accent-cyan); text-shadow: 0 0 12px rgba(6,182,212,0.6); }
+            95% { color: var(--accent-cyan); text-shadow: none; }
+        }
+
+        /* Separator dots — pulsing orbit style */
+        .hero-role-sep {
             display: inline-block;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-form-section {
-            background: var(--bg-darker);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-
-        .contact-map-section {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-form-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-group {
-            width: 100%;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: var(--bg-dark);
-            border: 2px solid transparent;
-            border-radius: 8px;
-            color: var(--white);
-            font-size: 1rem;
-            transition: all 0.3s;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background: var(--bg-dark);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-form button {
-            margin-top: 0.5rem;
-            width: 100%;
-        }
-
-        .contact-email {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: var(--soft-white);
-        }
-
-        .contact-email a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .contact-email a:hover {
-            color: var(--secondary-color);
-        }
-
-        .map-container {
-            width: 100%;
-            flex: 1;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 500px;
-        }
-
-        .location-text {
-            text-align: center;
-            color: var(--soft-white);
-            font-size: 1.1rem;
-            margin-top: 1.5rem;
-        }
-
-        .location-text i {
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-        }
-
-        .contact-item {
-            padding: 2rem;
-            background: var(--bg-darker);
-            border-radius: 15px;
-        }
-
-        .contact-item i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-
-        .contact-item p {
-            color: var(--soft-white);
-        }
-
-        .contact-item a {
-            color: var(--soft-white);
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary-color);
-        }
-
-        footer {
-            background: var(--bg-darker);
-            color: var(--soft-white);
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: var(--bg-dark);
-            margin: 3% auto;
-            padding: 2rem;
-            max-width: 900px;
-            border-radius: 15px;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-
-        .modal-content.project-modal {
-            max-width: 1100px;
-        }
-
-        .modal-body-horizontal {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .modal-image-container {
-            position: sticky;
-            top: 2rem;
-        }
-
-        .modal-image-container img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .modal-text-content h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .close-modal {
-            position: absolute;
-            right: 0.5rem;
-            top: 0.5rem;
-            font-size: 1.5rem;
-            line-height: 1;
-            cursor: pointer;
-            color: var(--white);
-            background: rgba(99, 102, 241, 0.2);
-            width: 36px;
-            height: 36px;
+            width: 5px; height: 5px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 10;
-            border: 2px solid var(--primary-color);
-            font-weight: bold;
-            padding: 0;
+            background: var(--accent-cyan);
+            border: none;
+            box-shadow: 0 0 6px rgba(6,182,212,0.5);
+            animation: sectionDotPulse 2.5s ease-in-out infinite;
+            flex-shrink: 0;
         }
+        .hero-role-sep:nth-child(2) { animation-delay: 0s; }
+        .hero-role-sep:nth-child(4) { animation-delay: 0.8s; }
 
-        .close-modal:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            transform: rotate(90deg);
-            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
-        }
+        .hero-institutions { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin: 0.6rem 0 0; }
+        .hero-institutions span { font-size: 0.7rem; color: #2d3f55; font-family: 'Space Mono', monospace; letter-spacing: 0.04em; }
+        .hero-institutions .inst-dot { color: rgba(59,130,246,0.3); font-size: 0.65rem; }
 
-        .modal-image {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-        }
+        .hero-divider { width: 40px; height: 1px; background: linear-gradient(90deg,transparent,rgba(59,130,246,0.4),transparent); margin: 0 auto 1.8rem; position: relative; }
+        .hero-divider::before { content: ''; position: absolute; width: 6px; height: 6px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.5); background: rgba(59,130,246,0.1); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: sectionDotPulse 2.5s ease-in-out infinite; }
 
-        .modal h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
+        .hero-bio { font-size: 0.93rem; color: #64748b; line-height: 1.8; max-width: 460px; margin: 0 0 2rem; }
+        .hero-links { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.2rem; }
+        .hero-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border: 0.5px solid rgba(59,130,246,0.2); border-radius: 5px; font-size: 0.8rem; color: var(--soft-white); text-decoration: none; font-family: 'Space Mono', monospace; letter-spacing: 0.03em; transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s; background: rgba(59,130,246,0.04); }
+        .hero-link:hover { border-color: rgba(59,130,246,0.45); color: var(--white); background: rgba(59,130,246,0.09); transform: translateY(-1px); }
+        .hero-link.primary { border-color: rgba(59,130,246,0.45); color: var(--white); }
+        .hero-email-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.38rem 1rem; background: rgba(59,130,246,0.06); border: 0.5px solid rgba(59,130,246,0.14); border-radius: 20px; font-size: 0.78rem; color: #64748b; font-family: 'Space Mono', monospace; letter-spacing: 0.02em; margin-bottom: 1.8rem; text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+        .hero-email-pill:hover { border-color: rgba(59,130,246,0.3); color: var(--soft-white); background: rgba(59,130,246,0.1); }
+        .hero-email-pill i { font-size: 0.7rem; color: var(--accent-cyan); }
 
-        .modal h4 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin: 1.5rem 0 1rem;
-        }
+        section { padding: 5rem 2rem; width: 100%; }
+        .section-content { max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-family: 'Space Mono', monospace; font-size: 2rem; margin-bottom: 0.6rem; color: var(--white); display: inline-flex; align-items: center; gap: 0.75rem; }
+        .section-title h2::before, .section-title h2::after { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.5); animation: sectionDotPulse 2.5s ease-in-out infinite; }
+        .section-title h2::after { animation-delay: 1.25s; background: rgba(6,182,212,0.25); border-color: rgba(6,182,212,0.5); }
+        @keyframes sectionDotPulse { 0%,100%{transform:scale(1);opacity:0.5;} 50%{transform:scale(1.5);opacity:1;} }
+        .section-title .subtitle { color: var(--soft-white); font-size: 1rem; }
 
-        .modal p {
-            color: var(--soft-white);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
+        #skills { background: #040b16 !important; position: relative; overflow: hidden; }
+        #skills::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg,transparent,transparent 38px,rgba(59,130,246,0.025) 38px,rgba(59,130,246,0.025) 39px); }
+        #skills::after { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.05); top: 50%; left: 50%; transform: translate(-50%,-50%); box-shadow: 0 0 0 80px rgba(59,130,246,0.03),0 0 0 160px rgba(6,182,212,0.02),0 0 0 240px rgba(59,130,246,0.015); pointer-events: none; animation: bgOrbitPulse 8s ease-in-out infinite; }
+        @keyframes bgOrbitPulse { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.7;} 50%{transform:translate(-50%,-50%) scale(1.05);opacity:1;} }
 
-        .modal .project-tags {
-            margin: 1.5rem 0;
-        }
+        .skills-categories { display: flex; flex-direction: column; gap: 3rem; position: relative; z-index: 1; }
+        .skill-category h3 { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.75rem; }
+        .skill-category h3::before { content: ''; width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(6,182,212,0.6); background: rgba(6,182,212,0.12); flex-shrink: 0; animation: sectionDotPulse 3s ease-in-out infinite; }
+        .skill-category h3::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .skills-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .skill-chip { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 1.1rem; background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.15); border-radius: 6px; font-size: 0.9rem; color: var(--soft-white); transition: all 0.25s; cursor: default; }
+        .skill-chip:hover { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.4); color: var(--white); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(59,130,246,0.12); }
+        .skill-chip img { width: 20px; height: 20px; object-fit: contain; filter: brightness(0.85) saturate(0.8); transition: filter 0.25s; }
+        .skill-chip:hover img { filter: brightness(1) saturate(1); }
+        .skill-chip i { font-size: 1rem; color: var(--primary-color); }
 
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                padding: 6rem 2rem 4rem;
-                gap: 3rem;
-            }
+        .project-filters { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.6rem 1.2rem; background: transparent; color: var(--soft-white); border: 1.5px solid rgba(59,130,246,0.18); border-radius: 4px; cursor: pointer; font-weight: 500; transition: all 0.3s; font-size: 0.88rem; font-family: 'DM Sans', sans-serif; letter-spacing: 0.03em; }
+        .filter-btn:hover { color: var(--white); border-color: var(--primary-color); }
+        .filter-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+        .project-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border: 1px solid var(--border); transition: all 0.35s; cursor: pointer; position: relative; }
+        .project-card::before { content: ''; position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.08); box-shadow: 0 0 0 12px rgba(59,130,246,0.04); pointer-events: none; transition: all 0.35s; z-index: 0; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(59,130,246,0.18); border-color: rgba(59,130,246,0.32); }
+        .project-card:hover::before { border-color: rgba(59,130,246,0.22); box-shadow: 0 0 0 12px rgba(59,130,246,0.08); }
+        .project-image { width: 100%; height: 250px; object-fit: cover; background: #000; }
+        .project-content { padding: 1.5rem; }
+        .project-content h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--white); font-weight: 600; }
+        .project-content p { color: var(--soft-white); font-size: 0.92rem; line-height: 1.65; margin-bottom: 1rem; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .tag { background: rgba(59,130,246,0.08); padding: 0.2rem 0.65rem; border-radius: 3px; font-size: 0.8rem; color: var(--secondary-color); border: 1px solid rgba(59,130,246,0.22); font-family: 'Space Mono', monospace; }
+        .project-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 1rem; background: transparent; color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.88rem; margin-top: 1rem; border: 1.5px solid var(--primary-color); border-radius: 4px; transition: all 0.3s ease; }
+        .project-link i { color: var(--primary-color); transition: color 0.3s ease; }
+        .project-link:hover { background: var(--primary-color); color: var(--white); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(59,130,246,0.28); }
+        .project-link:hover i { color: var(--white); }
 
-            .info-section {
-                grid-template-columns: 1fr;
-            }
+        .linkedin-posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .linkedin-post-card { background: var(--bg-card); border-radius: 8px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 1px solid var(--border); transition: all 0.3s; position: relative; overflow: hidden; }
+        .linkedin-post-card::before { content: ''; position: absolute; bottom: -24px; left: -24px; width: 64px; height: 64px; border-radius: 50%; border: 1px solid rgba(6,182,212,0.08); box-shadow: 0 0 0 14px rgba(6,182,212,0.03); pointer-events: none; transition: all 0.3s; }
+        .linkedin-post-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(59,130,246,0.18); }
+        .linkedin-post-card:hover::before { border-color: rgba(6,182,212,0.2); box-shadow: 0 0 0 14px rgba(6,182,212,0.07); }
+        .linkedin-post-card iframe { width: 100%; border-radius: 6px; border: none; position: relative; z-index: 1; }
 
-            .profile-circle {
-                width: 250px;
-                height: 250px;
-            }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        .contact-form-section { background: var(--bg-card); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 1px solid var(--border); }
+        .contact-map-section { display: flex; flex-direction: column; }
+        .contact-form-section h3 { font-family: 'Space Mono', monospace; font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--white); }
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+        .form-group { width: 100%; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem 1rem; background: var(--bg-dark); border: 1.5px solid var(--border); border-radius: 6px; color: var(--white); font-size: 0.95rem; transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .contact-form button { margin-top: 0.5rem; width: 100%; }
+        .contact-email { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; color: var(--soft-white); font-size: 0.92rem; }
+        .contact-email a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+        .contact-email a:hover { color: var(--secondary-color); }
+        .map-container { width: 100%; flex: 1; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 1px solid var(--border); }
+        .map-container iframe { width: 100%; height: 100%; min-height: 500px; }
+        .location-text { text-align: center; color: var(--soft-white); font-size: 1rem; margin-top: 1.5rem; }
+        .location-text i { color: var(--primary-color); margin-right: 0.5rem; }
 
-            .hero-right h2 {
-                font-size: 2rem;
-            }
+        footer { background: var(--bg-darker); color: var(--soft-white); text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-size: 0.9rem; font-family: 'Space Mono', monospace; position: relative; overflow: hidden; }
+        footer::before { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.05); box-shadow: 0 0 0 30px rgba(59,130,246,0.03),0 0 0 60px rgba(6,182,212,0.02); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; animation: bgOrbitPulse 6s ease-in-out infinite; }
+        footer p { position: relative; z-index: 1; }
 
-            .modal-body-horizontal {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-image-container {
-                position: relative;
-                top: 0;
-            }
-        }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); overflow-y: auto; }
+        .modal-content { background: var(--bg-dark); margin: 3% auto; padding: 2rem; max-width: 900px; border-radius: 10px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.6); border: 1px solid var(--border); }
+        .modal-content.project-modal { max-width: 1100px; }
+        .modal-body-horizontal { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+        .modal-image-container { position: sticky; top: 2rem; }
+        .modal-image-container img { width: 100%; border-radius: 8px; }
+        .modal-text-content h3 { font-family: 'Space Mono', monospace; font-size: 1.6rem; margin-bottom: 1rem; color: var(--white); }
+        .close-modal { position: absolute; right: 0.75rem; top: 0.75rem; font-size: 1.3rem; cursor: pointer; color: var(--white); background: rgba(59,130,246,0.12); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10; border: 1px solid rgba(59,130,246,0.25); font-weight: bold; }
+        .close-modal:hover { background: var(--primary-color); transform: rotate(90deg); }
+        .modal h4 { font-size: 1.1rem; color: var(--primary-color); margin: 1.5rem 0 1rem; font-family: 'Space Mono', monospace; }
+        .modal p { color: var(--soft-white); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg-darker);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-            }
+        @media (max-width: 968px) { .hero-content { padding: 6rem 2rem 4rem; } .modal-body-horizontal { grid-template-columns: 1fr; } .modal-image-container { position: relative; top: 0; } }
+        @media (max-width: 768px) { .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-darker); flex-direction: column; padding: 1rem; box-shadow: 0 5px 10px rgba(0,0,0,0.4); } .nav-links.active { display: flex; } .mobile-toggle { display: block; } .projects-grid { grid-template-columns: 1fr; } .linkedin-posts-grid { grid-template-columns: 1fr; } .contact-container { grid-template-columns: 1fr; } .hero-name { font-size: 1.5rem; } .section-title h2 { font-size: 1.6rem; } .orb-1 { width: 350px; height: 350px; } .orb-2 { width: 280px; height: 280px; } }
 
-            .nav-links.active {
-                display: flex;
-            }
+        .btn { padding: 0.65rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.88rem; transition: all 0.3s; display: inline-block; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+        .btn-primary { background: var(--primary-color); color: white; }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,0.32); }
 
-            .mobile-toggle {
-                display: block;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-filters {
-                gap: 0.5rem;
-            }
-
-            .filter-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .hero-right h2 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .linkedin-posts-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
+        .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; opacity: 0; animation: orbFade 1s 1.5s ease forwards; }
+        .scroll-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; color: #2a3a4e; letter-spacing: 0.18em; text-transform: uppercase; }
+        .scroll-robot { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .scroll-chevron { width: 10px; height: 10px; border-right: 1px solid rgba(59,130,246,0.4); border-bottom: 1px solid rgba(59,130,246,0.4); transform: rotate(45deg); animation: chevronPulse 1.6s ease-in-out infinite; }
+        .scroll-chevron:nth-child(2) { animation-delay: 0.2s; border-color: rgba(59,130,246,0.25); }
+        .scroll-chevron:nth-child(3) { animation-delay: 0.4s; border-color: rgba(59,130,246,0.12); }
+        @keyframes chevronPulse { 0%,100%{opacity:0.2;transform:rotate(45deg) translateY(0);} 50%{opacity:1;transform:rotate(45deg) translateY(3px);} }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo">Shashwat</div>
+            <div class="logo">S<span>.</span>Kumar</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#featured-posts">Featured Posts</a></li>
-                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#featured-posts">Posts</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-icons">
                 <a href="https://github.com/Shashwat1524" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/shashwatma/" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
-            <div class="mobile-toggle" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
 
     <section class="hero" id="home">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+            <div class="orb orb-5"></div>
         </div>
+        <div class="hero-noise"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-glow-line"></div>
+        <canvas id="hero-canvas"></canvas>
+
         <div class="hero-content">
-            <div class="hero-left">
-                <div class="profile-circle">
-                    <!-- <img src="images/Shashwat_anime.png" alt="Shashwat M.A"> -->
-                    <img src="images/linkedln_profile.jpeg" alt="Shashwat M.A">
-                </div>
-                <h1>Shashwat</h1>
-                <p class="title">Robotics Software and Firmware Engineer</p>
-                <p class="university">Purdue University</p>
-                <div class="hero-social">
-                    <a href="/cdn-cgi/l/email-protection#5b363a7528333a28332c3a2f1b3c363a323775383436" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/Shashwat1524" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/shashwatma/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                </div>
+            <div class="hero-avatar-wrap">
+                <div class="orbit-ring orbit-ring-1"></div>
+                <div class="orbit-ring orbit-ring-2"></div>
+                <div class="orbit-dot"></div>
+                <div class="orbit-dot orbit-dot-2"></div>
+                <img class="hero-avatar" src="images/linkedln_profile.jpeg" alt="Shashwat Kumar"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="hero-avatar-fallback">SK</div>
             </div>
 
-            <div class="hero-right">
-                <h2>Hello, World!</h2>
-                <h3>About Me</h3>
-                <p class="bio">
-                    <!-- I love bringing hardware and software together, 
-                    whether it's tinkering with low-level firmware, exploring computer memory 
-                    and architecture, or building robots. 
-                    I enjoy devising algorithms for path planning, 
-                    tracking, and control and tying them together so everything comes to life.
-                    Outside the lab, I keep my creative muscles active through freelance 
-                    graphic design, hitting the gym, or shooting hoops on the basketball court. -->
+            <h1 class="hero-name">Shashwat <span>Kumar</span></h1>
 
-                    I love bringing hardware and software together whether it's tinkering with low-level firmware, 
-                    diving into memory management, or making microcontrollers do exactly what I want.
-                    I thrive on understanding how systems work at the hardware level and building robotics 
-                    and autonomous systems from the ground up. From devising path planning algorithms to 
-                    wrangling CAN bus communication and tying sensors together, there's something deeply
-                    satisfying about making everything work together seamlessly. 
-                    When I'm not debugging embedded code or tuning control loops, 
-                    you'll find me doing freelance graphic design, hitting the gym, or shooting hoops on the basketball court.
+            <p class="hero-role">
+                <span class="hero-role-word">Robotics</span>
+                <span class="hero-role-sep"></span>
+                <span class="hero-role-word">Firmware</span>
+                <span class="hero-role-sep"></span>
+                <span class="hero-role-word">Automation</span>
+            </p>
 
-                </p>
+            <div class="hero-divider"></div>
 
-                <a href="assets/Shashwat_Kumar_Resume.pdf" class="resume-download" download>
-                    <i class="fas fa-download"></i> Download Resume
-                </a>
+            <p class="hero-bio">
+                I love bringing hardware and software together whether it's tinkering with low-level firmware,
+                diving into memory management, or making microcontrollers do exactly what I want. From sensor fusion and state estimation to path planning and control, all the way to commanding actuators over CAN bus,
+                there's something incredibly satisfying about understanding every layer and watching the entire system come to life.
+            </p>
 
-                <div class="info-section">
-                    <div class="info-block">
-                        <h3>Skills</h3>
-                            <div class="info-item">
-                                <i class="fas fa-code"></i>
-                                <span>C / C++</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fab fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-robot"></i>
-                                <span>ROS2</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-microchip"></i>
-                                <span>Embedded Firmware & RTOS</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fab fa-docker"></i>
-                                <span>Docker</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fab fa-linux"></i>
-                                <span>Linux</span>
-                            </div>
-                        </div>
-                    <div class="info-block">
-                        <h3>Education</h3>
-                        <div class="education-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <div class="degree">MSc in Autonomy</div>
-                                <div class="institution">Purdue University, 2024-Present</div>
-                            </div>
-                        </div>
-                        <div class="education-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <div class="degree">B.Tech in Mechatronics</div>
-                                <div class="institution">Manipal Institute of Technology</div>
-                            </div>
-                        </div>
+            <div class="hero-links">
+                <a href="https://github.com/Shashwat1524" target="_blank" class="hero-link"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/shashwatma/" target="_blank" class="hero-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="assets/Shashwat_Kumar_Resume.pdf" download class="hero-link primary"><i class="fas fa-download"></i> Resume</a>
+            </div>
+
+            <button class="hero-email-pill" onclick="openEmailDialog()" type="button">
+                <i class="fas fa-circle" style="font-size:0.45rem;color:var(--accent-cyan);"></i>
+                ma.shashwat@gmail.com
+            </button>
+
+            <div class="hero-institutions">
+                <span>Applied Fluid Power</span>
+                <span class="inst-dot">·</span>
+                <span>Purdue University</span>
+                <span class="inst-dot">·</span>
+                <span>Manipal University</span>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span class="scroll-label">scroll</span>
+            <div class="scroll-robot">
+                <div class="scroll-chevron"></div>
+                <div class="scroll-chevron"></div>
+                <div class="scroll-chevron"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-content">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+                <p class="subtitle">Languages, frameworks, tools, and platforms</p>
+            </div>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skills-row">
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"> C</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"> C++</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python</div>
+                        <div class="skill-chip"><i class="fas fa-code"></i> Structured Text (IEC 61131)</div>
+                        <div class="skill-chip"><i class="fas fa-code"></i> Assembly (ARM)</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Robotics &amp; Autonomy</h3>
+                    <div class="skills-row">
+                        <div class="skill-chip"><img src="https://avatars.githubusercontent.com/u/3979232?s=200&v=4" alt="ROS2" style="border-radius:3px;"> ROS2</div>
+                        <div class="skill-chip"><i class="fas fa-cogs"></i> MoveIt2</div>
+                        <div class="skill-chip"><i class="fas fa-map-marked-alt"></i> NAV2 / SLAM</div>
+                        <div class="skill-chip"><i class="fas fa-route"></i> Path Planning (A*, RRT*)</div>
+                        <div class="skill-chip"><i class="fas fa-sliders-h"></i> PID / Control Theory</div>
+                        <div class="skill-chip"><i class="fas fa-cubes"></i> Gazebo / RVIZ</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Embedded &amp; Hardware</h3>
+                    <div class="skills-row">
+                        <div class="skill-chip"><i class="fas fa-microchip"></i> STM32 / HAL</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino"> Arduino</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" alt="RPi"> Raspberry Pi</div>
+                        <div class="skill-chip"><i class="fas fa-wifi"></i> ESP32 / ESP-IDF</div>
+                        <div class="skill-chip"><i class="fas fa-tasks"></i> FreeRTOS</div>
+                        <div class="skill-chip"><i class="fas fa-network-wired"></i> CAN Bus</div>
+                        <div class="skill-chip"><i class="fas fa-exchange-alt"></i> UART / SPI / I2C</div>
+                        <div class="skill-chip"><i class="fas fa-wave-square"></i> PWM / Timer Control</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Computer Vision &amp; ML</h3>
+                    <div class="skills-row">
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV"> OpenCV</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"> PyTorch</div>
+                        <div class="skill-chip"><i class="fas fa-hand-paper"></i> MediaPipe</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"> NumPy</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"> Matplotlib</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps &amp; Tools</h3>
+                    <div class="skills-row">
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"> Docker</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"> Linux</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git</div>
+                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter:invert(0.7);"> GitHub</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Networking &amp; Protocols</h3>
+                    <div class="skills-row">
+                        <div class="skill-chip"><i class="fas fa-network-wired"></i> Ethernet</div>
+                        <div class="skill-chip"><i class="fas fa-exchange-alt"></i> TCP / IP</div>
+                        <div class="skill-chip"><i class="fas fa-bolt"></i> UDP</div>
+                        <div class="skill-chip"><i class="fas fa-network-wired"></i> CAN Bus</div>
+                        <div class="skill-chip"><i class="fas fa-exchange-alt"></i> UART / SPI / I2C</div>
+                        <div class="skill-chip"><i class="fas fa-wifi"></i> MODBUS</div>
                     </div>
                 </div>
             </div>
@@ -1135,7 +424,6 @@
                 <h2>Featured Projects</h2>
                 <p class="subtitle">Check out some of my recent work</p>
             </div>
-            
             <div class="project-filters">
                 <button class="filter-btn active" onclick="filterProjects('all')">All</button>
                 <button class="filter-btn" onclick="filterProjects('c-cpp')">C/C++</button>
@@ -1144,233 +432,62 @@
                 <button class="filter-btn" onclick="filterProjects('path-planning')">Path Planning</button>
                 <button class="filter-btn" onclick="filterProjects('computer-vision')">Computer Vision</button>
             </div>
-
             <div class="projects-grid">
                 <div class="project-card" onclick="openModal('modalAgri')" data-category="path-planning c-cpp">
-                    <video class="project-image" autoplay loop muted playsinline>
-                            <source src="images/portfolio/path_planning.mp4" type="video/mp4">
-                    </video>
-                    <div class="project-content">
-                        <h3>GPS-Guided Autonomous Agricultural Robot</h3>
-                        <p>Architected a full autonomy stack for a differential-drive agricultural robot featuring GNSS localization, Bézier curve trajectory generation, and Pure Pursuit for path tracking.</p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">Strucutured Text</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">GNSS</span>
-                            <span class="tag">Path Planning</span>
-                        </div>
-                    </div>
+                    <video class="project-image" autoplay loop muted playsinline><source src="images/portfolio/path_planning.mp4" type="video/mp4"></video>
+                    <div class="project-content"><h3>GPS-Guided Autonomous Agricultural Robot</h3><p>Architected a full autonomy stack for a differential-drive agricultural robot featuring GNSS localization, Bézier curve trajectory generation, and Pure Pursuit for path tracking.</p><div class="project-tags"><span class="tag">C++</span><span class="tag">Structured Text</span><span class="tag">Docker</span><span class="tag">GNSS</span><span class="tag">Path Planning</span></div></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal1')" data-category="embedded c-cpp python computer-vision">
                     <img src="images/portfolio/hmi_robot.gif" alt="Gesture Control" class="project-image">
-                    <div class="project-content">
-                        <h3>Gesture Controlled Robotic Arm</h3>
-                        <p>Real-time control of robotic arm using hand gestures via MediaPipe and STM32 with FreeRTOS.</p>
-                        <div class="project-tags">
-                            <span class="tag">STM32</span>
-                            <span class="tag">FreeRTOS</span>
-                            <span class="tag">MediaPipe</span>
-                            <span class="tag">C</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/Gesture-Controlled-Robotic-Arm" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>Gesture Controlled Robotic Arm</h3><p>Real-time control of robotic arm using hand gestures via MediaPipe and STM32 with FreeRTOS.</p><div class="project-tags"><span class="tag">STM32</span><span class="tag">FreeRTOS</span><span class="tag">MediaPipe</span><span class="tag">C</span></div><a href="https://github.com/Shashwat1524/Gesture-Controlled-Robotic-Arm" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modalAMR')" data-category="python path-planning computer-vision">
-                    
-                    <video class="project-image" autoplay loop muted playsinline>
-                            <source src="images/portfolio/amr_cobot.mp4" type="video/mp4">
-                    </video>
-                    <div class="project-content">
-                        <h3>Autonomous AMR &amp; Cobot Manufacturing Cell</h3>
-                        <p>Integrated two TECHMAN ROBOT cobots with a Fetch Freight100 AMR using Node-RED and MODBUS to fully automate a part assembly workflow — no human intervention required.</p>
-                        <div class="project-tags">
-                            <span class="tag">Node-RED</span>
-                            <span class="tag">MODBUS</span>
-                        </div>
-                    </div>
+                    <video class="project-image" autoplay loop muted playsinline><source src="images/portfolio/amr_cobot.mp4" type="video/mp4"></video>
+                    <div class="project-content"><h3>Autonomous AMR &amp; Cobot Manufacturing Cell</h3><p>Integrated two TECHMAN ROBOT cobots with a Fetch Freight100 AMR using Node-RED and MODBUS to fully automate a part assembly workflow.</p><div class="project-tags"><span class="tag">Node-RED</span><span class="tag">MODBUS</span></div></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal2')" data-category="python computer-vision">
                     <img src="images/portfolio/traffic_sign_class.jpg" alt="Traffic Sign" class="project-image">
-                    <div class="project-content">
-                        <h3>Traffic Sign Classification Using CSP</h3>
-                        <p>Developed a traffic sign classification model utilizing CSPNet achieving 87% accuracy on German Traffic Sign Dataset.</p>
-                        <div class="project-tags">
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Matplotlib</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/Traffic_Sign_Classification_Cross_Stage_Partial_Network" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>Traffic Sign Classification Using CSP</h3><p>Developed a traffic sign classification model utilizing CSPNet achieving 87% accuracy on German Traffic Sign Dataset.</p><div class="project-tags"><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Matplotlib</span></div><a href="https://github.com/Shashwat1524/Traffic_Sign_Classification_Cross_Stage_Partial_Network" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal3')" data-category="python path-planning">
                     <img src="images/portfolio/ttbot4_astar.gif" alt="A* Planning" class="project-image">
-                    <div class="project-content">
-                        <h3>A* Path Planning with PID Control</h3>
-                        <p>Implemented A* search algorithm with PID controller for optimal path planning on TurtleBot4.</p>
-                        <div class="project-tags">
-                            <span class="tag">ROS2</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Gazebo</span>
-                            <span class="tag">RVIZ</span>
-                            <span class="tag">Path Planning</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/A-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>A* Path Planning with PID Control</h3><p>Implemented A* search algorithm with PID controller for optimal path planning on TurtleBot4.</p><div class="project-tags"><span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">Gazebo</span><span class="tag">RVIZ</span><span class="tag">Path Planning</span></div><a href="https://github.com/Shashwat1524/A-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal4')" data-category="python path-planning">
                     <img src="images/portfolio/rrt.gif" alt="RRT" class="project-image">
-                    <div class="project-content">
-                        <h3>RRT* Path Planning on TurtleBot3</h3>
-                        <p>Implemented RRT* algorithm for path planning using KD-Tree for efficient nearest-neighbor searches.</p>
-                        <div class="project-tags">
-                            <span class="tag">ROS2</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">RVIZ</span>
-                            <span class="tag">RVIZ</span>
-                            <span class="tag">Path Planning</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/RRT-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>RRT* Path Planning on TurtleBot3</h3><p>Implemented RRT* algorithm for path planning using KD-Tree for efficient nearest-neighbor searches.</p><div class="project-tags"><span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">RVIZ</span><span class="tag">Path Planning</span></div><a href="https://github.com/Shashwat1524/RRT-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal5')" data-category="python computer-vision">
                     <img src="images/portfolio/ball_tracking.gif" alt="Ball Tracking" class="project-image">
-                    <div class="project-content">
-                        <h3>Ball-Following Robot with Kalman Filter</h3>
-                        <p>Ball-following system for TurtleBot3 using Kalman Filter for enhanced tracking accuracy.</p>
-                        <div class="project-tags">
-                            <span class="tag">ROS2</span>
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">Kalman Filter</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">RVIZ</span>
-                            <span class="tag">Gazebo</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/Ball-Following-Robot-using-Kalman-Filter" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>Ball-Following Robot with Kalman Filter</h3><p>Ball-following system for TurtleBot3 using Kalman Filter for enhanced tracking accuracy.</p><div class="project-tags"><span class="tag">ROS2</span><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Gazebo</span></div><a href="https://github.com/Shashwat1524/Ball-Following-Robot-using-Kalman-Filter" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal6')" data-category="embedded c-cpp python">
                     <img src="images/portfolio/motodash.gif" alt="Dashboard" class="project-image">
-                    <div class="project-content">
-                        <h3>E-Motorbike Telemetry Dashboard</h3>
-                        <p>Interactive dashboard using Python and Raspberry Pi to monitor motor controller data via CAN communication.</p>
-                        <div class="project-tags">
-                            <span class="tag">C</span>
-                            <span class="tag">ESP32</span>
-                            <span class="tag">CAN</span>
-                            <span class="tag">Python</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/Dashboard-Design-Based-on-Python-and-CAN-Communication" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>E-Motorbike Telemetry Dashboard</h3><p>Interactive dashboard using Python and Raspberry Pi to monitor motor controller data via CAN communication.</p><div class="project-tags"><span class="tag">C</span><span class="tag">ESP32</span><span class="tag">CAN</span><span class="tag">Python</span></div><a href="https://github.com/Shashwat1524/Dashboard-Design-Based-on-Python-and-CAN-Communication" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal7')" data-category="embedded c-cpp">
                     <img src="images/portfolio/QUADCOPTER.gif" alt="Quadcopter" class="project-image">
-                    <div class="project-content">
-                        <h3>PID-Based Flight Controller for Quadcopter</h3>
-                        <p>Developed flight controller integrating MPU-6050 IMU with complementary filter and PID control.</p>
-                        <div class="project-tags">
-                            <span class="tag">C</span>
-                            <span class="tag">Arduino</span>
-                            <span class="tag">MPU-6050</span>
-                            <span class="tag">PID</span>
-                        </div>
-                    </div>
+                    <div class="project-content"><h3>PID-Based Flight Controller for Quadcopter</h3><p>Developed flight controller integrating MPU-6050 IMU with complementary filter and PID control.</p><div class="project-tags"><span class="tag">C</span><span class="tag">Arduino</span><span class="tag">MPU-6050</span><span class="tag">PID</span></div></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal8')" data-category="embedded c-cpp">
                     <img src="images/aut_drone.jpg" alt="Autonomous Drone" class="project-image">
-                    <div class="project-content">
-                        <h3>Autonomous Drone Based on MoCap</h3>
-                        <p>Designed drone flight controller using ESP32 with Micro-ROS for Motion Capture System integration.</p>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">ESP-IDF</span>
-                            <span class="tag">Micro-ROS</span>
-                            <span class="tag">LIDAR</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/ESP_MOCAP_Drone_Flight_Controller" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>Autonomous Drone Based on MoCap</h3><p>Designed drone flight controller using ESP32 with Micro-ROS for Motion Capture System integration.</p><div class="project-tags"><span class="tag">C++</span><span class="tag">ESP-IDF</span><span class="tag">Micro-ROS</span><span class="tag">LIDAR</span></div><a href="https://github.com/Shashwat1524/ESP_MOCAP_Drone_Flight_Controller" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal9')" data-category="embedded c-cpp">
                     <img src="images/portfolio/STM32.jpeg" alt="Temperature Control" class="project-image">
-                    <div class="project-content">
-                        <h3>Smart Temperature Control for Hydroponics</h3>
-                        <p>Integrated STM32, DS18B20 sensor, and relay-controlled fan with PID control for hydroponics.</p>
-                        <div class="project-tags">
-                            <span class="tag">C</span>
-                            <span class="tag">STM32</span>
-                            <span class="tag">FreeRTOS</span>
-                            <span class="tag">PID</span>
-                        </div>
-                    </div>
+                    <div class="project-content"><h3>Smart Temperature Control for Hydroponics</h3><p>Integrated STM32, DS18B20 sensor, and relay-controlled fan with PID control for hydroponics.</p><div class="project-tags"><span class="tag">C</span><span class="tag">STM32</span><span class="tag">FreeRTOS</span><span class="tag">PID</span></div></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal10')" data-category="python path-planning">
                     <img src="images/ros_nav2.jpeg" alt="NAV2" class="project-image">
-                    <div class="project-content">
-                        <h3>Custom Robot Navigation with NAV2</h3>
-                        <p>Custom robot navigation using ROS2 Humble and NAV2 with SLAM for mapping and path planning.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">ROS2</span>
-                            <span class="tag">NAV2</span>
-                            <span class="tag">SLAM</span>
-                        </div>
-                        <a href="https://github.com/Shashwat1524/Custom-Robot-navigation-using-NAV2-and-ROS2-Humble" class="project-link" target="_blank" onclick="event.stopPropagation()">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
+                    <div class="project-content"><h3>Custom Robot Navigation with NAV2</h3><p>Custom robot navigation using ROS2 Humble and NAV2 with SLAM for mapping and path planning.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">ROS2</span><span class="tag">NAV2</span><span class="tag">SLAM</span></div><a href="https://github.com/Shashwat1524/Custom-Robot-navigation-using-NAV2-and-ROS2-Humble" class="project-link" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> View on GitHub</a></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal11')" data-category="embedded c-cpp">
                     <img src="images/portfolio/SMARTWATCHGIF.gif" alt="IIoT Watch" class="project-image">
-                    <div class="project-content">
-                        <h3>IIoT Watch that Measures Pulse</h3>
-                        <p>Smartwatch using ESP32 with SEN-1157 Pulse Sensor for real-time heart rate monitoring and WiFi connectivity.</p>
-                        <div class="project-tags">
-                            <span class="tag">C</span>
-                            <span class="tag">ESP32</span>
-                            <span class="tag">OLED</span>
-                            <span class="tag">WiFi</span>
-                        </div>
-                    </div>
+                    <div class="project-content"><h3>IIoT Watch that Measures Pulse</h3><p>Smartwatch using ESP32 with SEN-1157 Pulse Sensor for real-time heart rate monitoring and WiFi connectivity.</p><div class="project-tags"><span class="tag">C</span><span class="tag">ESP32</span><span class="tag">OLED</span><span class="tag">WiFi</span></div></div>
                 </div>
-
                 <div class="project-card" onclick="openModal('modal12')" data-category="embedded">
                     <img src="images/payload_autonomous.png" alt="Drone Payload" class="project-image">
-                    <div class="project-content">
-                        <h3>Payload System for Autonomous Drone</h3>
-                        <p>Redesigned drone payload system using CAD and 3D printing, integrating Raspberry Pi and IMU for optimal performance.</p>
-                        <div class="project-tags">
-                            <span class="tag">CAD</span>
-                            <span class="tag">3D Printing</span>
-                            <span class="tag">SolidWorks</span>
-                        </div>
-                    </div>
+                    <div class="project-content"><h3>Payload System for Autonomous Drone</h3><p>Redesigned drone payload system using CAD and 3D printing, integrating Raspberry Pi and IMU for optimal performance.</p><div class="project-tags"><span class="tag">CAD</span><span class="tag">3D Printing</span><span class="tag">SolidWorks</span></div></div>
                 </div>
             </div>
         </div>
@@ -1383,83 +500,9 @@
                 <p class="subtitle">Recent updates from LinkedIn</p>
             </div>
             <div class="linkedin-posts-grid">
-            
-                <div class="linkedin-post-card">
-                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7434718524847116288?collapsed=1" 
-                        height="600" 
-                        frameborder="0" allowfullscreen="" title="L post 3">
-                    </iframe>
-                </div>
-
-            
-                <div class="linkedin-post-card">
-                    <iframe 
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328827280875495425" 
-                        height="600" 
-                        frameborder="0" 
-                        allowfullscreen="" 
-                        title="LinkedIn Post 1">
-                    </iframe>
-                </div>
-                
-                <div class="linkedin-post-card">
-                    <iframe 
-                        src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7364469012971393025" 
-                        height="600" 
-                        frameborder="0" 
-                        allowfullscreen="" 
-                        title="LinkedIn Post 2">
-                    </iframe>
-                </div>
-            </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section id="certificates">
-        <div class="section-content">
-            <div class="section-title">
-                <h2>Certificates & Recognition</h2>
-                <p class="subtitle">My achievements and credentials</p>
-            </div>
-            <div class="certificates-grid">
-                <div class="certificate-card" onclick="openCertificate('assets/Shashwat_M.A_MotoManipal_Certificate.pdf')">
-                    <i class="fas fa-certificate"></i>
-                    <h3>MotoManipal Certificate</h3>
-                    <p style="color: var(--soft-white); margin-bottom: 1rem;">Electric Vehicle Team</p>
-                    <a href="assets/Shashwat_M.A_MotoManipal_Certificate.pdf" class="btn btn-primary" download onclick="event.stopPropagation()">Download</a>
-                </div>
-                <div class="certificate-card" onclick="openCertificate('assets/Shashwat M.A._ICHTR_CERTIFICATE.pdf')">
-                    <i class="fas fa-award"></i>
-                    <h3>ICHTR Conference</h3>
-                    <p style="color: var(--soft-white); margin-bottom: 1rem;">International Conference</p>
-                    <a href="assets/Shashwat M.A._ICHTR_CERTIFICATE.pdf" class="btn btn-primary" download onclick="event.stopPropagation()">Download</a>
-                </div>
-                <div class="certificate-card" onclick="openCertificate('assets/Shashwat_MA_OLA_Internship_Certificate.pdf')">
-                    <i class="fas fa-certificate"></i>
-                    <h3>OLA Electric Internship</h3>
-                    <p style="color: var(--soft-white); margin-bottom: 1rem;">Systems Integration Intern</p>
-                    <a href="assets/Shashwat_MA_OLA_Internship_Certificate.pdf" class="btn btn-primary" download onclick="event.stopPropagation()">Download</a>
-                </div>
-                <div class="certificate-card" onclick="openCertificate('assets/Shashwat_M.A_STM_AI_Certificate.pdf')">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>STM AI Workshop</h3>
-                    <p style="color: var(--soft-white); margin-bottom: 1rem;">STMicroelectronics Workshop</p>
-                    <a href="assets/Shashwat_M.A_STM_AI_Certificate.pdf" class="btn btn-primary" download onclick="event.stopPropagation()">Download</a>
-                </div>
-                <div class="certificate-card" onclick="openCertificate('assets/Shashwat_Rotaract_Certificate.pdf')">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Rotaract Certificate</h3>
-                    <p style="color: var(--soft-white); margin-bottom: 1rem;">Community Service</p>
-                    <a href="assets/Shashwat_Rotaract_Certificate.pdf" class="btn btn-primary" download onclick="event.stopPropagation()">Download</a>
-                </div>
-                <div class="certificate-card" onclick="openCertificate('assets/Shashwat_Blood_Donation_Certificate.pdf')">
-                    <i class="fas fa-heart"></i>
-                    <h3>Blood Donation Camp</h3>
-                    <p style="color: var(--soft-white); margin-bottom: 1rem;">Community Service</p>
-                    <a href="assets/Shashwat_Blood_Donation_Certificate.pdf" class="btn btn-primary" download onclick="event.stopPropagation()">Download</a>
-                </div>
+                <div class="linkedin-post-card"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7434718524847116288?collapsed=1" height="600" frameborder="0" allowfullscreen="" title="L post 3"></iframe></div>
+                <div class="linkedin-post-card"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328827280875495425" height="600" frameborder="0" allowfullscreen="" title="LinkedIn Post 1"></iframe></div>
+                <div class="linkedin-post-card"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7364469012971393025" height="600" frameborder="0" allowfullscreen="" title="LinkedIn Post 2"></iframe></div>
             </div>
         </div>
     </section>
@@ -1474,45 +517,23 @@
                 <div class="contact-form-section">
                     <h3>Send Me a Message</h3>
                     <form action="https://formspree.io/f/mjkpkopz" method="POST" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
+                        <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+                        <div class="form-group"><input type="text" name="subject" placeholder="Subject" required></div>
+                        <div class="form-group"><textarea name="message" rows="6" placeholder="Your Message" required></textarea></div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
                     </form>
-                    <div class="contact-email">
-                        <p>Or email me directly at: <a href="/cdn-cgi/l/email-protection#395458174a51584a514e584d795e54585055175a5654"><span class="__cf_email__" data-cfemail="2e434f005d464f5d46594f5a6e49434f4742004d4143">[email&#160;protected]</span></a></p>
-                    </div>
+                    <div class="contact-email"><p>Or email me directly at: <a href="mailto:ma.shashwat@gmail.com">ma.shashwat@gmail.com</a></p></div>
                 </div>
                 <div class="contact-map-section">
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48528.34917919262!2d-86.93738734999999!3d40.4237096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8812e2b5d9bb438b%3A0xb85eb3e6a5acc24c!2sWest%20Lafayette%2C%20IN!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                    <p class="location-text"><i class="fas fa-map-marker-alt"></i> West Lafayette, Indiana</p>
+                    <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86466.27773810876!2d-122.23319754999999!3d47.6101497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906c8d0a9db93d%3A0xec8fb2ab0ace3a1c!2sBellevue%2C%20WA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <p class="location-text"><i class="fas fa-map-marker-alt"></i> Bellevue, Washington State</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; Thank you!</p>
-    </footer>
+    <footer><p>&copy; Shashwat M.A. — Robotics Engineer &amp; Firmware Developer</p></footer>
 
     <div id="projectModal" class="modal">
         <div class="modal-content">
@@ -1521,332 +542,364 @@
         </div>
     </div>
 
-    <div id="certificateModal" class="modal">
-        <div class="modal-content" style="max-width: 1000px;">
-            <span class="close-modal" onclick="closeCertificateModal()">&times;</span>
-            <div id="certificateBody" style="text-align: center;">
-                <iframe id="certificateFrame" style="width: 100%; height: 80vh; border: none; border-radius: 10px;"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-
+    <script>
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
         function filterProjects(category) {
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.filter-btn');
-            
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            
             cards.forEach(card => {
                 const categories = card.getAttribute('data-category');
-                
-                if (category === 'all') {
-                    card.style.display = 'block';
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.9)';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 10);
-                } else if (categories && categories.includes(category)) {
-                    card.style.display = 'block';
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.9)';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 10);
+                if (category === 'all' || (categories && categories.includes(category))) {
+                    card.style.display = 'block'; card.style.opacity = '0'; card.style.transform = 'scale(0.9)';
+                    setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; card.style.transition = 'all 0.3s'; }, 10);
                 } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.9)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
+                    card.style.opacity = '0'; card.style.transform = 'scale(0.9)';
+                    setTimeout(() => { card.style.display = 'none'; }, 300);
                 }
             });
         }
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.getElementById('navLinks').classList.remove('active');
-                }
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.getElementById('navLinks').classList.remove('active'); }
             });
         });
-
         const projectData = {
-            modalAgri: {
-                title: "GPS-Guided Autonomous Agricultural Robot",
-                image: "images/portfolio/path_planning.mp4",
-                tags: [ "Strucutured Text", "Docker", "GNSS", "Path Planning","C++",],
-                github: null,
-                description: [
-                    "Architected a complete autonomy stack for a GPS-guided differential-drive agricultural robot, designed for precise row-following missions in orchard environments spanning 100m+.",
-                    "Implemented GNSS-based localization achieving 45cm accuracy, fusing raw GPS data with heading estimates to maintain a reliable position fix throughout the mission.",
-                    "Designed a Bézier curve trajectory generation pipeline with real-time optimization using the bisection method and Lagrange interpolation, allowing the robot to compute smooth, dynamically feasible paths that adapt to field geometry on the fly.",
-                    "Integrated a Pure Pursuit controller for path tracking, continuously computing the lookahead point on the trajectory and issuing curvature commands to the differential drive to minimize cross-track error."
-                ]
-            },
-            modalAMR: {
-                title: "Autonomous AMR & Cobot Manufacturing Cell",
-                image: "images/portfolio/amr_cobot.mp4",
-                tags: ["Node-RED", "MODBUS"],
-                github: null,
-                description: [
-                    "Integrated two TECHMAN ROBOT cobots and a Fetch Robotics (Zebra Technologies) Freight100 AMR into a fully automated manufacturing cell, using Node-RED as the central orchestration layer and MODBUS for cobot communication.",
-                    "The workflow begins with the first cobot loading a part onto the Freight100's cart. The AMR then autonomously navigates to a second cobot station equipped with a gripper, which adds a component to the part. Finally, the AMR returns the finished assembly back to the first robot — entirely without human intervention.",
-                    "Implemented machine vision to detect the exact position of a cup holder relative to a label at distance, enabling precise pick-and-place operations regardless of minor positional variation on the cart.",
-                    "Demonstrated seamless multi-robot coordination across different platforms (cobot + AMR) using industrial protocols, showcasing a scalable approach to flexible manufacturing automation."
-                ]
-            },
-            modal1: {
-                title: "Gesture Controlled Robotic Arm",
-                image: "images/portfolio/hmi_robot.gif",
-                tags: ["STM32", "FreeRTOS", "MediaPipe"],
-                github: "https://github.com/Shashwat1524/Gesture-Controlled-Robotic-Arm",
-                description: [
-                    "This system enables real-time control of a robotic arm using hand gestures detected via MediaPipe. The gestures are processed in Python and translated into control commands, which are transmitted over UART to an STM32 microcontroller.",
-                    "The STM32 is programmed using CMSIS and HAL drivers, with hardware timers configured in PWM mode to control servo motors. Each timer channel generates pulse widths (typically 0.5–2.5 ms within a 20 ms period) corresponding to specific joint angles.",
-                    "The microcontroller continuously reads UART data, decodes the incoming gesture commands, and updates PWM outputs accordingly. All these tasks are controlled using FreeRTOS to ensure all the tasks are performed in a deterministic manner.",
-                    "This project demonstrates the integration of vision-based HMI with embedded motor control using timer-driven PWM and efficient serial communication."
-                ]
-            },
-            modal2: {
-                title: "Traffic Sign Classification Using Cross Stage Partials (CSP)",
-                image: "images/portfolio/traffic_model.png",
-                tags: ["PyTorch", "Python", "OpenCV", "Matplotlib"],
-                github: "https://github.com/Shashwat1524/Traffic_Sign_Classification_Cross_Stage_Partial_Network",
-                description: [
-                    "Developed a traffic sign classification model utilizing CSPNet, which partitions the feature map to reduce computational load while maintaining efficiency. This approach improved gradient flow and computational efficiency by 20%.",
-                    "Implemented the Mish activation function, which enhances gradient propagation compared to ReLU, leading to better feature representation and smoother optimization.",
-                    "Applied data augmentation techniques to improve generalization and mitigate overfitting—common challenges in traffic sign classification.",
-                    "Achieved 87% accuracy on the German Traffic Sign Dataset."
-                ]
-            },
-            modal3: {
-                title: "A* Path Planning with PID Control on TurtleBot4",
-                image: "images/portfolio/ttbot4_astar.gif",
-                tags: ["Python", "ROS2", "RVIZ", "Gazebo", "Matplotlib"],
-                github: "https://github.com/Shashwat1524/A-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3",
-                description: [
-                    "Developed a path-planning system that loads and processes map data to construct graph structures for optimal path calculation using the A* search algorithm, a heuristic-driven approach that balances cost and efficiency.",
-                    "Implemented A* search, which combines Dijkstra's algorithm (guaranteeing shortest paths) with a heuristic (Euclidean distance) to prioritize exploration, improving computational speed.",
-                    "Designed a PID controller to ensure accurate path following by dynamically adjusting the robot's velocity and orientation.",
-                    "Validated the approach on TurtleBot3 simulations and a physical TurtleBot4, demonstrating reliable real-world performance."
-                ]
-            },
-            modal4: {
-                title: "RRT* Path Planning and Following for Obstacle Avoidance on TurtleBot3",
-                image: "images/portfolio/rrt.gif",
-                tags: ["Python", "ROS2", "RVIZ", "Gazebo", "Matplotlib"],
-                github: "https://github.com/Shashwat1524/RRT-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3",
-                description: [
-                    "Implemented the RRT* (Rapidly-exploring Random Tree) algorithm for path planning, leveraging a KD-Tree for efficient nearest-neighbor searches and graph construction.",
-                    "RRT* works by randomly sampling points in the environment, extending a tree structure toward them, and iteratively refining paths by rewiring connections to minimize cost, ensuring asymptotic optimality.",
-                    "Used KD-Tree (library implementation), a space-partitioning data structure, to efficiently store and retrieve nearest nodes, significantly improving the performance of path expansion.",
-                    "Designed a PID controller to track the generated path accurately by dynamically adjusting the robot's motion.",
-                    "Validated the approach through simulations in RViz and Gazebo, ensuring effective real-world applicability."
-                ]
-            },
-            modal5: {
-                title: "Ball-Following Turtlebot using Kalman Filter",
-                image: "images/portfolio/ball_tracking.gif",
-                tags: ["Python", "ROS2", "RVIZ", "Gazebo"],
-                github: "https://github.com/Shashwat1524/Ball-Following-Robot-using-Kalman-Filter",
-                description: [
-                    "Developed a ball-following system for TurtleBot3 using a Kalman Filter to enhance tracking accuracy and predict future ball positions based on motion dynamics.",
-                    "Implemented ball detection using OpenCV, identifying a red ball and estimating its distance based on its perceived size—larger size indicating closer proximity.",
-                    "Utilized the Kalman Filter, which recursively estimates the ball's position based on its current velocity and motion model and by combining noisy sensor data with these motion predictions it helps in improving tracking stability and thereby reducing errors."
-                ]
-            },
-            modal6: {
-                title: "E-Motorbike Telemetry Dashboard System",
-                image: "images/portfolio/motodash.gif",
-                tags: ["Python", "ESP32", "Raspberry Pi", "CAN"],
-                github: "https://github.com/Shashwat1524/Dashboard-Design-Based-on-Python-and-CAN-Communication",
-                description: [
-                    "Developed an interactive dashboard using Python and Raspberry Pi 3 to monitor and analyze motor controller data via CAN (Controller Area Network) communication.",
-                    "Collected key motor parameters such as RPM and current supply from the motor controller over CAN.",
-                    "Implemented C code on ESP32 to act as a CAN receiver, filtering messages based on specific ID fields and forwarding relevant data via UART to the Raspberry Pi.",
-                    "Designed a graphical dashboard using Pygame on the Raspberry Pi, providing a real-time visual interface for motor performance monitoring.",
-                    "Integrated a data logging system and saved the motor rpm and current data in CSV format for analysis and diagnostics."
-                ]
-            },
-            modal7: {
-                title: "PID-Based Flight Controller for Quadcopter",
-                image: "images/portfolio/QUADCOPTER.gif",
-                tags: ["Arduino", "MPU-6050", "PID", "ESC"],
-                github: null,
-                description: [
-                    "Developed a flight controller for a quadcopter by integrating an MPU-6050 IMU sensor with an Arduino.",
-                    "Acquired gyroscope and accelerometer data from the MPU-6050 and processed it to compute roll, pitch, and yaw angles.",
-                    "Implemented a complementary filter to fuse accelerometer and gyroscope data, compensating for gyroscope drift and improving attitude estimation.",
-                    "Designed a PID-based flight controller to stabilize the quadcopter by adjusting motor speeds.",
-                    "Generated PWM signals to control ESCs, which regulated the BLDC motors for stable flight dynamics."
-                ]
-            },
-            modal8: {
-                title: "Autonomous Drone Based on MoCap",
-                image: "images/aut_drone.jpg",
-                tags: ["ESP-IDF", "Micro-ROS", "MoCap"],
-                github: "https://github.com/Shashwat1524/ESP_MOCAP_Drone_Flight_Controller",
-                description: [
-                    "Designed and developed a drone flight controller using ESP32 integrated with Micro-ROS for real-time interfacing with a Motion Capture System, programmed in C and C++ using ESP-IDF.",
-                    "Implemented an RTOS-based scheduler to acquire Motion Capture System data and activate fail-safe mechanisms during communication loss.",
-                    "Integrated an MPU-6050 IMU (via I2C) and Lidar (via UART) to enable autonomous safe landing under fail-safe conditions."
-                ]
-            },
-            modal9: {
-                title: "Smart Temperature Control for Hydroponics Using DS18B20 and STM32",
-                image: "images/portfolio/FAN.gif",
-                tags: ["DS18B20", "STM32", "FreeRTOS", "PID"],
-                github: null,
-                description: [
-                    "Integrated an STM32 microcontroller, a DS18B20 temperature sensor via the 1-Wire protocol, and a relay-controlled fan to regulate temperature in a hydroponics system.",
-                    "Developed a PID-based control system to dynamically adjust the fan speed for maintaining optimal conditions.",
-                    "Implemented FreeRTOS with one task dedicated to reading temperature data and another for executing the PID control, ensuring real-time responsiveness and efficient temperature regulation."
-                ]
-            },
-            modal10: {
-                title: "Custom Robot Navigation with NAV2",
-                image: "images/ros_nav2.jpeg",
-                tags: ["ROS2", "GAZEBO", "RVIZ", "NAV2"],
-                github: "https://github.com/Shashwat1524/Custom-Robot-navigation-using-NAV2-and-ROS2-Humble",
-                description: [
-                    "This project demonstrates custom robot navigation using ROS2 Humble and NAV2, incorporating SLAM for mapping and path planning.",
-                    "The robot utilizes Lidar sensor technology for accurate environmental perception.",
-                    "Implemented custom navigation stack with NAV2 for autonomous navigation in complex environments."
-                ]
-            },
-            modal11: {
-                title: "IIoT Watch that Measures Pulse",
-                image: "images/portfolio/SMARTWATCHGIF.gif",
-                tags: ["ESP32", "SEN-1157", "OLED", "WiFi"],
-                github: null,
-                description: [
-                    "Developed a smartwatch using ESP32 that integrates a SEN-1157 Pulse Sensor for real-time heart rate monitoring.",
-                    "Displayed heartbeat data on an SSD1306 OLED display using I2C communication.",
-                    "Implemented WiFi connectivity to fetch and display the current time and related information, ensuring seamless real-time updates."
-                ]
-            },
-            modal12: {
-                title: "Payload System for Autonomous Drone",
-                image: "images/payload_autonomous.png",
-                tags: ["CAD", "3D Printing", "SolidWorks", "Circuit Design"],
-                github: null,
-                description: [
-                    "Redesigned the payload system for an autonomous drone using CAD and 3D printing, integrating a Raspberry Pi, IMU, and battery for optimized weight distribution and stability.",
-                    "Fabricated the payload structure using carbon fiber for durability and lightweight performance.",
-                    "Designed and 3D-printed the casing for electronic components using SolidWorks and manufactured it with a Creality 3D printer.",
-                    "Assembled the electronic circuitry by soldering components onto a breadboard and incorporating switches to enable controlled power distribution and system isolation for safety and debugging."
-                ]
-            }
+            modalAgri: { title: "GPS-Guided Autonomous Agricultural Robot", image: "images/portfolio/path_planning.mp4", isVideo: true, tags: ["Structured Text","Docker","GNSS","Path Planning","C++"], github: null, description: ["Architected a complete autonomy stack for a GPS-guided differential-drive agricultural robot, designed for precise row-following missions in orchard environments spanning 100m+.","Implemented GNSS-based localization achieving 45cm accuracy, fusing raw GPS data with heading estimates to maintain a reliable position fix throughout the mission.","Designed a Bézier curve trajectory generation pipeline with real-time optimization using the bisection method and Lagrange interpolation.","Integrated a Pure Pursuit controller for path tracking, continuously computing the lookahead point on the trajectory and issuing curvature commands to the differential drive."] },
+            modalAMR: { title: "Autonomous AMR & Cobot Manufacturing Cell", image: "images/portfolio/amr_cobot.mp4", isVideo: true, tags: ["Node-RED","MODBUS"], github: null, description: ["Integrated two TECHMAN ROBOT cobots and a Fetch Robotics Freight100 AMR into a fully automated manufacturing cell using Node-RED as the central orchestration layer.","The workflow begins with the first cobot loading a part onto the AMR, which then navigates to a second station for assembly, and returns entirely without human intervention.","Implemented machine vision to detect the exact position of a cup holder relative to a label at distance, enabling precise pick-and-place operations.","Demonstrated seamless multi-robot coordination across different platforms using industrial protocols."] },
+            modal1: { title: "Gesture Controlled Robotic Arm", image: "images/portfolio/hmi_robot.gif", tags: ["STM32","FreeRTOS","MediaPipe"], github: "https://github.com/Shashwat1524/Gesture-Controlled-Robotic-Arm", description: ["This system enables real-time control of a robotic arm using hand gestures detected via MediaPipe. Gestures are processed in Python and translated into control commands transmitted over UART to an STM32 microcontroller.","The STM32 uses CMSIS and HAL drivers, with hardware timers in PWM mode to control servo motors. Each timer channel generates pulse widths (0.5–2.5 ms within a 20 ms period) corresponding to specific joint angles.","FreeRTOS ensures all tasks are performed in a deterministic manner, with one task for reading UART data and another for updating PWM outputs."] },
+            modal2: { title: "Traffic Sign Classification Using CSP", image: "images/portfolio/traffic_model.png", tags: ["PyTorch","Python","OpenCV","Matplotlib"], github: "https://github.com/Shashwat1524/Traffic_Sign_Classification_Cross_Stage_Partial_Network", description: ["Developed a traffic sign classification model utilizing CSPNet, which partitions the feature map to reduce computational load while maintaining efficiency. Improved gradient flow by 20%.","Implemented the Mish activation function, enhancing gradient propagation compared to ReLU for better feature representation.","Applied data augmentation techniques to improve generalization and achieved 87% accuracy on the German Traffic Sign Dataset."] },
+            modal3: { title: "A* Path Planning with PID Control", image: "images/portfolio/ttbot4_astar.gif", tags: ["Python","ROS2","RVIZ","Gazebo"], github: "https://github.com/Shashwat1524/A-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3", description: ["Developed a path-planning system using the A* search algorithm, a heuristic-driven approach combining Dijkstra's algorithm with Euclidean distance heuristics.","Designed a PID controller to ensure accurate path following by dynamically adjusting the robot's velocity and orientation.","Validated on TurtleBot3 simulations and a physical TurtleBot4."] },
+            modal4: { title: "RRT* Path Planning on TurtleBot3", image: "images/portfolio/rrt.gif", tags: ["Python","ROS2","RVIZ","Gazebo"], github: "https://github.com/Shashwat1524/RRT-Star-Path-Planning-for-Obstacle-Avoidance-on-TurtleBot3", description: ["Implemented the RRT* algorithm leveraging a KD-Tree for efficient nearest-neighbor searches.","Used KD-Tree to efficiently store and retrieve nearest nodes, significantly improving the performance of path expansion.","Validated through simulations in RViz and Gazebo."] },
+            modal5: { title: "Ball-Following Robot with Kalman Filter", image: "images/portfolio/ball_tracking.gif", tags: ["Python","ROS2","OpenCV"], github: "https://github.com/Shashwat1524/Ball-Following-Robot-using-Kalman-Filter", description: ["Developed a ball-following system for TurtleBot3 using a Kalman Filter to enhance tracking accuracy and predict future ball positions.","Implemented ball detection using OpenCV, identifying a red ball and estimating its distance based on perceived size.","The Kalman Filter combines noisy sensor data with motion predictions to improve tracking stability."] },
+            modal6: { title: "E-Motorbike Telemetry Dashboard", image: "images/portfolio/motodash.gif", tags: ["Python","ESP32","Raspberry Pi","CAN"], github: "https://github.com/Shashwat1524/Dashboard-Design-Based-on-Python-and-CAN-Communication", description: ["Developed an interactive dashboard using Python and Raspberry Pi 3 to monitor motor controller data via CAN communication.","Implemented C code on ESP32 as a CAN receiver, filtering messages based on specific ID fields and forwarding via UART to the Raspberry Pi.","Designed a graphical dashboard using Pygame and integrated CSV data logging for analysis."] },
+            modal7: { title: "PID-Based Flight Controller for Quadcopter", image: "images/portfolio/QUADCOPTER.gif", tags: ["Arduino","MPU-6050","PID","ESC"], github: null, description: ["Developed a flight controller by integrating an MPU-6050 IMU with an Arduino, processing gyroscope and accelerometer data.","Implemented a complementary filter to fuse sensor data, compensating for gyroscope drift and improving attitude estimation.","Designed a PID-based controller to stabilize the quadcopter and generated PWM signals to control ESCs."] },
+            modal8: { title: "Autonomous Drone Based on MoCap", image: "images/aut_drone.jpg", tags: ["ESP-IDF","Micro-ROS","MoCap"], github: "https://github.com/Shashwat1524/ESP_MOCAP_Drone_Flight_Controller", description: ["Designed a drone flight controller using ESP32 integrated with Micro-ROS for real-time interfacing with a Motion Capture System.","Implemented an RTOS-based scheduler to acquire MoCap data and activate fail-safe mechanisms during communication loss.","Integrated MPU-6050 IMU (I2C) and Lidar (UART) for autonomous safe landing."] },
+            modal9: { title: "Smart Temperature Control for Hydroponics", image: "images/portfolio/FAN.gif", tags: ["DS18B20","STM32","FreeRTOS","PID"], github: null, description: ["Integrated STM32, DS18B20 sensor via 1-Wire protocol, and relay-controlled fan for temperature regulation in a hydroponics system.","Developed a PID-based control system to dynamically adjust fan speed for optimal conditions.","Implemented FreeRTOS with dedicated tasks for temperature reading and PID control execution."] },
+            modal10: { title: "Custom Robot Navigation with NAV2", image: "images/ros_nav2.jpeg", tags: ["ROS2","GAZEBO","RVIZ","NAV2"], github: "https://github.com/Shashwat1524/Custom-Robot-navigation-using-NAV2-and-ROS2-Humble", description: ["Demonstrated custom robot navigation using ROS2 Humble and NAV2, incorporating SLAM for mapping and path planning.","The robot utilizes Lidar sensor technology for accurate environmental perception.","Implemented custom navigation stack with NAV2 for autonomous navigation in complex environments."] },
+            modal11: { title: "IIoT Watch that Measures Pulse", image: "images/portfolio/SMARTWATCHGIF.gif", tags: ["ESP32","SEN-1157","OLED","WiFi"], github: null, description: ["Developed a smartwatch using ESP32 integrating a SEN-1157 Pulse Sensor for real-time heart rate monitoring.","Displayed heartbeat data on an SSD1306 OLED display via I2C communication.","Implemented WiFi connectivity to fetch and display the current time with seamless real-time updates."] },
+            modal12: { title: "Payload System for Autonomous Drone", image: "images/payload_autonomous.png", tags: ["CAD","3D Printing","SolidWorks"], github: null, description: ["Redesigned the payload system using CAD and 3D printing, integrating Raspberry Pi, IMU, and battery for optimized weight distribution.","Fabricated the structure using carbon fiber for durability and lightweight performance.","Designed and manufactured casing using SolidWorks and a Creality 3D printer."] }
         };
-
         function openModal(modalId) {
-            const data = projectData[modalId];
-            if (!data) return;
+            const data = projectData[modalId]; if (!data) return;
+            const mediaEl = data.isVideo ? `<video src="${data.image}" autoplay loop muted playsinline style="width:100%;border-radius:8px;"></video>` : `<img src="${data.image}" alt="${data.title}" style="width:100%;border-radius:8px;">`;
+            document.querySelector('#projectModal .modal-content').classList.add('project-modal');
+            document.getElementById('modalBody').innerHTML = `<div class="modal-body-horizontal"><div class="modal-image-container">${mediaEl}<div class="project-tags" style="margin-top:1rem;">${data.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>${data.github?`<div style="margin-top:1.5rem;"><a href="${data.github}" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> View on GitHub</a></div>`:''}</div><div class="modal-text-content"><h3>${data.title}</h3>${data.description.map(d=>`<p>${d}</p>`).join('')}</div></div>`;
+            document.getElementById('projectModal').style.display = 'block'; document.body.style.overflow = 'hidden';
+        }
+        function closeModal() { document.querySelector('#projectModal .modal-content').classList.remove('project-modal'); document.getElementById('projectModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(event) { if (event.target == document.getElementById('projectModal')) closeModal(); }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '0'; entry.target.style.transform = 'translateY(20px)'; entry.target.style.transition = 'all 0.6s ease'; setTimeout(() => { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }, 100); } }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.project-card, .skill-chip').forEach(el => observer.observe(el));
+    </script>
 
-            let modalHTML = `
-                <div class="modal-body-horizontal">
-                    <div class="modal-image-container">
-                        <img src="${data.image}" alt="${data.title}">
-                        <div class="project-tags" style="margin-top: 1rem;">
-                            ${data.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                        ${data.github ? `
-                            <div style="margin-top: 1.5rem;">
-                                <a href="${data.github}" class="btn btn-primary" target="_blank">
-                                    <i class="fab fa-github"></i> View on GitHub
-                                </a>
-                            </div>
-                        ` : ''}
-                    </div>
-                    <div class="modal-text-content">
-                        <h3>${data.title}</h3>
-                        ${data.description.map(desc => `<p>${desc}</p>`).join('')}
-                    </div>
+    <script>
+    (function () {
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let W, H, t = 0, animId;
+        const BLUE = 'rgba(59,130,246,', CYAN = 'rgba(6,182,212,', INDIGO = 'rgba(99,102,241,';
+
+        function resize() { W = canvas.width = canvas.parentElement.offsetWidth; H = canvas.height = canvas.parentElement.offsetHeight; }
+
+        const PTS = [];
+        function initParticles() {
+            PTS.length = 0;
+            for (let i = 0; i < 45; i++) PTS.push({ x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-0.5)*0.18, vy: (Math.random()-0.5)*0.18, r: Math.random()*1.2+0.3, col: Math.random()<0.6?BLUE:Math.random()<0.5?CYAN:INDIGO, a: Math.random()*0.18+0.04 });
+        }
+
+        function drawParticles() {
+            const DIST = 120;
+            for (const p of PTS) { p.x=(p.x+p.vx+W)%W; p.y=(p.y+p.vy+H)%H; }
+            for (let i=0;i<PTS.length;i++) {
+                for (let j=i+1;j<PTS.length;j++) { const a=PTS[i],b=PTS[j],d=Math.hypot(a.x-b.x,a.y-b.y); if(d<DIST){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=BLUE+(1-d/DIST)*0.05+')';ctx.lineWidth=0.4;ctx.stroke();} }
+                ctx.beginPath(); ctx.arc(PTS[i].x,PTS[i].y,PTS[i].r,0,Math.PI*2); ctx.fillStyle=PTS[i].col+PTS[i].a+')'; ctx.fill();
+            }
+        }
+
+        function drawRobot(rx, ry, angle, col) {
+            ctx.save(); ctx.translate(rx,ry); ctx.rotate(angle);
+            ctx.beginPath(); ctx.rect(-10,-6,20,12); ctx.strokeStyle=col+'0.5)'; ctx.lineWidth=1; ctx.stroke(); ctx.fillStyle=col+'0.07)'; ctx.fill();
+            ctx.beginPath(); ctx.moveTo(10,0); ctx.lineTo(16,0); ctx.strokeStyle=col+'0.55)'; ctx.lineWidth=0.8; ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(13,-2); ctx.lineTo(16,0); ctx.lineTo(13,2); ctx.strokeStyle=col+'0.55)'; ctx.lineWidth=0.8; ctx.stroke();
+            for (const [wx,wy] of [[-5,-8],[5,-8],[-5,8],[5,8]]) { ctx.beginPath(); ctx.rect(wx-3,wy-1.2,6,2.4); ctx.fillStyle=col+'0.22)'; ctx.fill(); }
+            ctx.beginPath(); ctx.arc(0,0,1.8,0,Math.PI*2); ctx.fillStyle=col+'0.65)'; ctx.fill();
+            ctx.restore();
+            ctx.beginPath(); ctx.arc(rx+Math.cos(angle)*14,ry+Math.sin(angle)*14,18,angle-Math.PI/3,angle+Math.PI/3); ctx.strokeStyle=col+'0.08)'; ctx.lineWidth=0.7; ctx.stroke();
+        }
+
+        function drawRoute(pts, prog, col) {
+            ctx.setLineDash([3,7]); ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+            for (let i=1;i<pts.length;i++) { const mx=(pts[i-1].x+pts[i].x)/2,my=(pts[i-1].y+pts[i].y)/2; ctx.quadraticCurveTo(pts[i-1].x,pts[i-1].y,mx,my); }
+            ctx.lineTo(pts[pts.length-1].x,pts[pts.length-1].y); ctx.strokeStyle=BLUE+'0.1)'; ctx.lineWidth=0.8; ctx.stroke(); ctx.setLineDash([]);
+            for (const p of pts) { ctx.beginPath();ctx.arc(p.x,p.y,2.8,0,Math.PI*2);ctx.strokeStyle=BLUE+'0.18)';ctx.lineWidth=0.7;ctx.stroke(); ctx.beginPath();ctx.arc(p.x,p.y,1,0,Math.PI*2);ctx.fillStyle=BLUE+'0.28)';ctx.fill(); }
+            const total=pts.length-1, seg=Math.min(Math.floor(prog*total),total-1), frac=prog*total-seg;
+            const p0=pts[seg],p1=pts[seg+1], rx=p0.x+(p1.x-p0.x)*frac, ry=p0.y+(p1.y-p0.y)*frac, angle=Math.atan2(p1.y-p0.y,p1.x-p0.x);
+            drawRobot(rx,ry,angle,col);
+        }
+
+        function drawCommsLink(ax,ay,bx,by,strength) { ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.strokeStyle=BLUE+strength+')';ctx.lineWidth=0.5;ctx.setLineDash([2,8]);ctx.stroke();ctx.setLineDash([]); }
+
+        function buildRoutes() {
+            const cxL=W*0.14, cxR=W*0.86;
+            return [
+                { pts:[{x:cxL-20,y:H*0.15},{x:cxL+20,y:H*0.30},{x:cxL-10,y:H*0.48},{x:cxL+15,y:H*0.65},{x:cxL-20,y:H*0.82}], speed:0.28, phase:0, col:CYAN },
+                { pts:[{x:cxR+15,y:H*0.82},{x:cxR-20,y:H*0.65},{x:cxR+10,y:H*0.48},{x:cxR-15,y:H*0.30},{x:cxR+20,y:H*0.15}], speed:0.22, phase:1.8, col:CYAN },
+                { pts:[{x:W*0.08,y:H*0.88},{x:W*0.25,y:H*0.84},{x:W*0.5,y:H*0.87},{x:W*0.75,y:H*0.83},{x:W*0.92,y:H*0.88}], speed:0.20, phase:0.9, col:BLUE },
+                { pts:[{x:W*0.92,y:H*0.10},{x:W*0.72,y:H*0.14},{x:W*0.5,y:H*0.11},{x:W*0.28,y:H*0.15},{x:W*0.08,y:H*0.10}], speed:0.18, phase:2.5, col:BLUE },
+            ];
+        }
+
+        let routes = [];
+        function draw() {
+            ctx.clearRect(0,0,W,H); t+=0.008;
+            drawParticles();
+            if (routes.length===0) routes=buildRoutes();
+            const positions=[];
+            for (const r of routes) {
+                const prog=(Math.sin(t*r.speed+r.phase)*0.5+0.5);
+                drawRoute(r.pts,prog,r.col);
+                const total=r.pts.length-1, seg=Math.min(Math.floor(prog*total),total-1), frac=prog*total-seg;
+                const p0=r.pts[seg],p1=r.pts[seg+1];
+                positions.push({x:p0.x+(p1.x-p0.x)*frac, y:p0.y+(p1.y-p0.y)*frac});
+            }
+            for (let i=0;i<positions.length;i++) for (let j=i+1;j<positions.length;j++) {
+                const d=Math.hypot(positions[i].x-positions[j].x,positions[i].y-positions[j].y);
+                if (d<W*0.45) { const s=((0.5+0.5*Math.sin(t*1.5+i+j))*(1-d/(W*0.45))*0.08).toFixed(3); drawCommsLink(positions[i].x,positions[i].y,positions[j].x,positions[j].y,s); }
+            }
+            animId=requestAnimationFrame(draw);
+        }
+
+        resize(); initParticles(); draw();
+        window.addEventListener('resize', () => { cancelAnimationFrame(animId); resize(); initParticles(); routes=[]; draw(); });
+    })();
+    </script>
+    <!-- ===== QUICK CONTACT DIALOG ===== -->
+    <div id="emailDialog" class="email-dialog-backdrop" onclick="closeEmailDialogBackdrop(event)">
+        <div class="email-dialog">
+            <div class="email-dialog-header">
+                <div class="email-dialog-title">
+                    <span class="email-dialog-dot"></span>
+                    <span>Get in touch</span>
                 </div>
-            `;
+                <button class="email-dialog-close" onclick="closeEmailDialog()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="emailDialogForm" class="email-dialog-form" action="https://formspree.io/f/mjkpkopz" method="POST">
+                <div class="email-dialog-field">
+                    <label>Your email</label>
+                    <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+                <div class="email-dialog-field">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" required>Hi Shashwat,
 
-            const modalContent = document.querySelector('#projectModal .modal-content');
-            modalContent.classList.add('project-modal');
-            document.getElementById('modalBody').innerHTML = modalHTML;
-            document.getElementById('projectModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
+I came across your portfolio and would love to connect! Let's connect!
+
+Best,</textarea>
+                </div>
+                <input type="hidden" name="subject" value="Let's Connect — via Portfolio">
+                <div class="email-dialog-actions">
+                    <button type="button" class="email-dialog-cancel" onclick="closeEmailDialog()">Cancel</button>
+                    <button type="submit" class="email-dialog-send" id="dialogSendBtn">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </div>
+                <p class="email-dialog-success" id="dialogSuccess">
+                    <i class="fas fa-check-circle"></i> Message sent — I'll get back to you soon!
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .hero-email-pill { cursor: pointer; font-family: 'Space Mono', monospace; }
+
+        .email-dialog-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            animation: dialogFadeIn 0.2s ease;
         }
+        .email-dialog-backdrop.open { display: flex; }
 
-        function closeModal() {
-            const modalContent = document.querySelector('#projectModal .modal-content');
-            modalContent.classList.remove('project-modal');
-            document.getElementById('projectModal').style.display = 'none';
+        @keyframes dialogFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .email-dialog {
+            background: #060f1f;
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 10px;
+            padding: 1.75rem;
+            width: 100%;
+            max-width: 420px;
+            margin: 1rem;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,130,246,0.08);
+            animation: dialogSlideUp 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes dialogSlideUp { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .email-dialog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+        .email-dialog-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.88rem;
+            color: var(--white);
+            letter-spacing: 0.04em;
+        }
+        .email-dialog-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 8px rgba(6,182,212,0.7);
+            animation: sectionDotPulse 2s ease-in-out infinite;
+        }
+        .email-dialog-close {
+            background: none;
+            border: none;
+            color: #475569;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0.25rem;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .email-dialog-close:hover { color: var(--white); }
+
+        .email-dialog-form { display: flex; flex-direction: column; gap: 1rem; }
+
+        .email-dialog-field { display: flex; flex-direction: column; gap: 0.4rem; }
+        .email-dialog-field label {
+            font-size: 0.72rem;
+            color: #475569;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .email-dialog-field input,
+        .email-dialog-field textarea {
+            background: rgba(59,130,246,0.04);
+            border: 1px solid rgba(59,130,246,0.15);
+            border-radius: 6px;
+            padding: 0.6rem 0.85rem;
+            color: var(--white);
+            font-size: 0.88rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: border-color 0.2s, background 0.2s;
+            resize: vertical;
+        }
+        .email-dialog-field input:focus,
+        .email-dialog-field textarea:focus {
+            outline: none;
+            border-color: rgba(59,130,246,0.45);
+            background: rgba(59,130,246,0.07);
+        }
+        .email-dialog-field textarea { min-height: 130px; line-height: 1.6; }
+
+        .email-dialog-actions {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: flex-end;
+            margin-top: 0.25rem;
+        }
+        .email-dialog-cancel {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: 1px solid rgba(59,130,246,0.18);
+            border-radius: 5px;
+            color: #475569;
+            font-size: 0.82rem;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .email-dialog-cancel:hover { border-color: rgba(59,130,246,0.35); color: var(--soft-white); }
+
+        .email-dialog-send {
+            padding: 0.5rem 1.2rem;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.82rem;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: all 0.2s;
+        }
+        .email-dialog-send:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(59,130,246,0.35); }
+        .email-dialog-send:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .email-dialog-success {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--accent-cyan);
+            font-family: 'Space Mono', monospace;
+            text-align: center;
+            justify-content: center;
+            padding: 0.5rem 0 0;
+        }
+        .email-dialog-success.show { display: flex; }
+    </style>
+
+    <script>
+        function openEmailDialog() {
+            document.getElementById('emailDialog').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.querySelector('.email-dialog-field input[type="email"]').focus(), 100);
+        }
+        function closeEmailDialog() {
+            document.getElementById('emailDialog').classList.remove('open');
             document.body.style.overflow = 'auto';
         }
-
-        function openCertificate(pdfUrl) {
-            const modal = document.getElementById('certificateModal');
-            const iframe = document.getElementById('certificateFrame');
-            iframe.src = pdfUrl;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        function closeEmailDialogBackdrop(e) {
+            if (e.target === document.getElementById('emailDialog')) closeEmailDialog();
         }
 
-        function closeCertificateModal() {
-            const modal = document.getElementById('certificateModal');
-            const iframe = document.getElementById('certificateFrame');
-            iframe.src = '';
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onclick = function(event) {
-            const projectModal = document.getElementById('projectModal');
-            const certificateModal = document.getElementById('certificateModal');
-            
-            if (event.target == projectModal) {
-                closeModal();
-            }
-            if (event.target == certificateModal) {
-                closeCertificateModal();
-            }
-        }
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(20px)';
-                    entry.target.style.transition = 'all 0.6s ease';
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 100);
+        document.getElementById('emailDialogForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('dialogSendBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+            try {
+                const res = await fetch('https://formspree.io/f/mjkpkopz', {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    btn.style.display = 'none';
+                    document.getElementById('dialogSuccess').classList.add('show');
+                    setTimeout(() => { closeEmailDialog(); btn.style.display = ''; btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send'; document.getElementById('dialogSuccess').classList.remove('show'); }, 2800);
+                } else {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+                    alert('Something went wrong — please try again.');
                 }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.project-card, .certificate-card, .contact-item').forEach(el => {
-            observer.observe(el);
+            } catch { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send'; }
         });
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEmailDialog(); });
     </script>
 </body>
 </html>
-
-
-
-
-
-
