@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shashwat — Robotics Engineer</title>
+    <title>Shashwat Kumar — Portfolio</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E0R3DSRN1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -86,31 +86,11 @@
         .hero-name { font-family: 'Space Mono', monospace; font-size: 1.9rem; font-weight: 700; color: var(--white); margin: 0 0 0.35rem; letter-spacing: 0.01em; }
         .hero-name span { color: var(--primary-color); }
 
-        /* ── Role line with animated keyword highlights ── */
-        .hero-role {
-            font-size: 0.78rem;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
-            margin: 0 0 0.3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.55rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-role-word {
-            color: var(--accent-cyan);
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        /* Glitch/flicker effect on each word, staggered */
+        .hero-role { font-size: 0.78rem; letter-spacing: 0.13em; text-transform: uppercase; font-family: 'Space Mono', monospace; margin: 0 0 0.3rem; display: flex; align-items: center; justify-content: center; gap: 0.55rem; flex-wrap: wrap; }
+        .hero-role-word { color: var(--accent-cyan); position: relative; transition: color 0.3s; }
         .hero-role-word:nth-child(1) { animation: wordFlicker 6s 0s ease-in-out infinite; }
         .hero-role-word:nth-child(3) { animation: wordFlicker 6s 1.8s ease-in-out infinite; }
         .hero-role-word:nth-child(5) { animation: wordFlicker 6s 3.6s ease-in-out infinite; }
-
         @keyframes wordFlicker {
             0%, 85%, 100% { color: var(--accent-cyan); text-shadow: none; opacity: 1; }
             87% { opacity: 0.4; color: #fff; }
@@ -119,18 +99,7 @@
             93% { opacity: 1; color: var(--accent-cyan); text-shadow: 0 0 12px rgba(6,182,212,0.6); }
             95% { color: var(--accent-cyan); text-shadow: none; }
         }
-
-        /* Separator dots — pulsing orbit style */
-        .hero-role-sep {
-            display: inline-block;
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: var(--accent-cyan);
-            border: none;
-            box-shadow: 0 0 6px rgba(6,182,212,0.5);
-            animation: sectionDotPulse 2.5s ease-in-out infinite;
-            flex-shrink: 0;
-        }
+        .hero-role-sep { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-cyan); border: none; box-shadow: 0 0 6px rgba(6,182,212,0.5); animation: sectionDotPulse 2.5s ease-in-out infinite; flex-shrink: 0; }
         .hero-role-sep:nth-child(2) { animation-delay: 0s; }
         .hero-role-sep:nth-child(4) { animation-delay: 0.8s; }
 
@@ -146,7 +115,7 @@
         .hero-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border: 0.5px solid rgba(59,130,246,0.2); border-radius: 5px; font-size: 0.8rem; color: var(--soft-white); text-decoration: none; font-family: 'Space Mono', monospace; letter-spacing: 0.03em; transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s; background: rgba(59,130,246,0.04); }
         .hero-link:hover { border-color: rgba(59,130,246,0.45); color: var(--white); background: rgba(59,130,246,0.09); transform: translateY(-1px); }
         .hero-link.primary { border-color: rgba(59,130,246,0.45); color: var(--white); }
-        .hero-email-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.38rem 1rem; background: rgba(59,130,246,0.06); border: 0.5px solid rgba(59,130,246,0.14); border-radius: 20px; font-size: 0.78rem; color: #64748b; font-family: 'Space Mono', monospace; letter-spacing: 0.02em; margin-bottom: 1.8rem; text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+        .hero-email-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.38rem 1rem; background: rgba(59,130,246,0.06); border: 0.5px solid rgba(59,130,246,0.14); border-radius: 20px; font-size: 0.78rem; color: #64748b; font-family: 'Space Mono', monospace; letter-spacing: 0.02em; margin-bottom: 1.8rem; text-decoration: none; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; }
         .hero-email-pill:hover { border-color: rgba(59,130,246,0.3); color: var(--soft-white); background: rgba(59,130,246,0.1); }
         .hero-email-pill i { font-size: 0.7rem; color: var(--accent-cyan); }
 
@@ -250,6 +219,34 @@
         .scroll-chevron:nth-child(2) { animation-delay: 0.2s; border-color: rgba(59,130,246,0.25); }
         .scroll-chevron:nth-child(3) { animation-delay: 0.4s; border-color: rgba(59,130,246,0.12); }
         @keyframes chevronPulse { 0%,100%{opacity:0.2;transform:rotate(45deg) translateY(0);} 50%{opacity:1;transform:rotate(45deg) translateY(3px);} }
+
+        /* ── Email dialog ── */
+        .email-dialog-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; align-items: center; justify-content: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+        .email-dialog-backdrop.open { display: flex; animation: dialogFadeIn 0.2s ease; }
+        @keyframes dialogFadeIn { from{opacity:0;} to{opacity:1;} }
+        .email-dialog { background: #060f1f; border: 1px solid rgba(59,130,246,0.2); border-radius: 10px; padding: 1.75rem; width: 100%; max-width: 420px; margin: 1rem; box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,130,246,0.08); animation: dialogSlideUp 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+        @keyframes dialogSlideUp { from{transform:translateY(16px);opacity:0;} to{transform:translateY(0);opacity:1;} }
+        .email-dialog-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+        .email-dialog-title { display: flex; align-items: center; gap: 0.6rem; font-family: 'Space Mono', monospace; font-size: 0.88rem; color: var(--white); letter-spacing: 0.04em; }
+        .email-dialog-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-cyan); box-shadow: 0 0 8px rgba(6,182,212,0.7); animation: sectionDotPulse 2s ease-in-out infinite; }
+        .email-dialog-close { background: none; border: none; color: #475569; cursor: pointer; font-size: 0.9rem; padding: 0.25rem; transition: color 0.2s; line-height: 1; }
+        .email-dialog-close:hover { color: var(--white); }
+        .email-dialog-form { display: flex; flex-direction: column; gap: 1rem; }
+        .email-dialog-field { display: flex; flex-direction: column; gap: 0.4rem; }
+        .email-dialog-field label { font-size: 0.72rem; color: #475569; font-family: 'Space Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; }
+        .email-dialog-field input, .email-dialog-field textarea { background: rgba(59,130,246,0.04); border: 1px solid rgba(59,130,246,0.15); border-radius: 6px; padding: 0.6rem 0.85rem; color: var(--white); font-size: 0.88rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s, background 0.2s; resize: vertical; }
+        .email-dialog-field input:focus, .email-dialog-field textarea:focus { outline: none; border-color: rgba(59,130,246,0.45); background: rgba(59,130,246,0.07); }
+        .email-dialog-field textarea { min-height: 130px; line-height: 1.6; }
+        .email-dialog-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 0.25rem; }
+        .email-dialog-cancel { padding: 0.5rem 1rem; background: none; border: 1px solid rgba(59,130,246,0.18); border-radius: 5px; color: #475569; font-size: 0.82rem; font-family: 'Space Mono', monospace; cursor: pointer; transition: all 0.2s; }
+        .email-dialog-cancel:hover { border-color: rgba(59,130,246,0.35); color: var(--soft-white); }
+        .email-dialog-send { padding: 0.5rem 1.2rem; background: var(--primary-color); border: none; border-radius: 5px; color: white; font-size: 0.82rem; font-family: 'Space Mono', monospace; cursor: pointer; display: flex; align-items: center; gap: 0.45rem; transition: all 0.2s; }
+        .email-dialog-send:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(59,130,246,0.35); }
+        .email-dialog-send:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .email-dialog-feedback { display: none; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-family: 'Space Mono', monospace; text-align: center; justify-content: center; padding: 0.5rem 0 0; }
+        .email-dialog-feedback.show { display: flex; }
+        .email-dialog-feedback.success { color: var(--accent-cyan); }
+        .email-dialog-feedback.error { color: #f87171; }
     </style>
 </head>
 <body>
@@ -273,11 +270,7 @@
 
     <section class="hero" id="home">
         <div class="hero-bg">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-            <div class="orb orb-4"></div>
-            <div class="orb orb-5"></div>
+            <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="orb orb-4"></div><div class="orb orb-5"></div>
         </div>
         <div class="hero-noise"></div>
         <div class="hero-grid"></div>
@@ -296,7 +289,6 @@
             </div>
 
             <h1 class="hero-name">Shashwat <span>Kumar</span></h1>
-
             <p class="hero-role">
                 <span class="hero-role-word">Robotics</span>
                 <span class="hero-role-sep"></span>
@@ -345,85 +337,61 @@
 
     <section id="skills">
         <div class="section-content">
-            <div class="section-title">
-                <h2>Technical Skills</h2>
-                <p class="subtitle">Languages, frameworks, tools, and platforms</p>
-            </div>
+            <div class="section-title"><h2>Technical Skills</h2><p class="subtitle">Languages, frameworks, tools, and platforms</p></div>
             <div class="skills-categories">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skills-row">
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"> C</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"> C++</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python</div>
-                        <div class="skill-chip"><i class="fas fa-code"></i> Structured Text (IEC 61131)</div>
-                        <div class="skill-chip"><i class="fas fa-code"></i> Assembly (ARM)</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Robotics &amp; Autonomy</h3>
-                    <div class="skills-row">
-                        <div class="skill-chip"><img src="https://avatars.githubusercontent.com/u/3979232?s=200&v=4" alt="ROS2" style="border-radius:3px;"> ROS2</div>
-                        <div class="skill-chip"><i class="fas fa-cogs"></i> MoveIt2</div>
-                        <div class="skill-chip"><i class="fas fa-map-marked-alt"></i> NAV2 / SLAM</div>
-                        <div class="skill-chip"><i class="fas fa-route"></i> Path Planning (A*, RRT*)</div>
-                        <div class="skill-chip"><i class="fas fa-sliders-h"></i> PID / Control Theory</div>
-                        <div class="skill-chip"><i class="fas fa-cubes"></i> Gazebo / RVIZ</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Embedded &amp; Hardware</h3>
-                    <div class="skills-row">
-                        <div class="skill-chip"><i class="fas fa-microchip"></i> STM32 / HAL</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino"> Arduino</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" alt="RPi"> Raspberry Pi</div>
-                        <div class="skill-chip"><i class="fas fa-wifi"></i> ESP32 / ESP-IDF</div>
-                        <div class="skill-chip"><i class="fas fa-tasks"></i> FreeRTOS</div>
-                        <div class="skill-chip"><i class="fas fa-network-wired"></i> CAN Bus</div>
-                        <div class="skill-chip"><i class="fas fa-exchange-alt"></i> UART / SPI / I2C</div>
-                        <div class="skill-chip"><i class="fas fa-wave-square"></i> PWM / Timer Control</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Computer Vision &amp; ML</h3>
-                    <div class="skills-row">
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV"> OpenCV</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"> PyTorch</div>
-                        <div class="skill-chip"><i class="fas fa-hand-paper"></i> MediaPipe</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"> NumPy</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"> Matplotlib</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps &amp; Tools</h3>
-                    <div class="skills-row">
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"> Docker</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"> Linux</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git</div>
-                        <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter:invert(0.7);"> GitHub</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Networking &amp; Protocols</h3>
-                    <div class="skills-row">
-                        <div class="skill-chip"><i class="fas fa-network-wired"></i> Ethernet</div>
-                        <div class="skill-chip"><i class="fas fa-exchange-alt"></i> TCP / IP</div>
-                        <div class="skill-chip"><i class="fas fa-bolt"></i> UDP</div>
-                        <div class="skill-chip"><i class="fas fa-network-wired"></i> CAN Bus</div>
-                        <div class="skill-chip"><i class="fas fa-exchange-alt"></i> UART / SPI / I2C</div>
-                        <div class="skill-chip"><i class="fas fa-wifi"></i> MODBUS</div>
-                    </div>
-                </div>
+                <div class="skill-category"><h3>Languages</h3><div class="skills-row">
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"> C</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"> C++</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python</div>
+                    <div class="skill-chip"><i class="fas fa-code"></i> Structured Text (IEC 61131)</div>
+                    <div class="skill-chip"><i class="fas fa-code"></i> Assembly (ARM)</div>
+                </div></div>
+                <div class="skill-category"><h3>Robotics &amp; Autonomy</h3><div class="skills-row">
+                    <div class="skill-chip"><img src="https://avatars.githubusercontent.com/u/3979232?s=200&v=4" alt="ROS2" style="border-radius:3px;"> ROS2</div>
+                    <div class="skill-chip"><i class="fas fa-cogs"></i> MoveIt2</div>
+                    <div class="skill-chip"><i class="fas fa-map-marked-alt"></i> NAV2 / SLAM</div>
+                    <div class="skill-chip"><i class="fas fa-route"></i> Path Planning (A*, RRT*)</div>
+                    <div class="skill-chip"><i class="fas fa-sliders-h"></i> PID / Control Theory</div>
+                    <div class="skill-chip"><i class="fas fa-cubes"></i> Gazebo / RVIZ</div>
+                </div></div>
+                <div class="skill-category"><h3>Embedded &amp; Hardware</h3><div class="skills-row">
+                    <div class="skill-chip"><i class="fas fa-microchip"></i> STM32 / HAL</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino"> Arduino</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" alt="RPi"> Raspberry Pi</div>
+                    <div class="skill-chip"><i class="fas fa-wifi"></i> ESP32 / ESP-IDF</div>
+                    <div class="skill-chip"><i class="fas fa-tasks"></i> FreeRTOS</div>
+                    <div class="skill-chip"><i class="fas fa-network-wired"></i> CAN Bus</div>
+                    <div class="skill-chip"><i class="fas fa-exchange-alt"></i> UART / SPI / I2C</div>
+                    <div class="skill-chip"><i class="fas fa-wave-square"></i> PWM / Timer Control</div>
+                </div></div>
+                <div class="skill-category"><h3>Computer Vision &amp; ML</h3><div class="skills-row">
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV"> OpenCV</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"> PyTorch</div>
+                    <div class="skill-chip"><i class="fas fa-hand-paper"></i> MediaPipe</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"> NumPy</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"> Matplotlib</div>
+                </div></div>
+                <div class="skill-category"><h3>DevOps &amp; Tools</h3><div class="skills-row">
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"> Docker</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"> Linux</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git</div>
+                    <div class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter:invert(0.7);"> GitHub</div>
+                </div></div>
+                <div class="skill-category"><h3>Networking &amp; Protocols</h3><div class="skills-row">
+                    <div class="skill-chip"><i class="fas fa-network-wired"></i> Ethernet</div>
+                    <div class="skill-chip"><i class="fas fa-exchange-alt"></i> TCP / IP</div>
+                    <div class="skill-chip"><i class="fas fa-bolt"></i> UDP</div>
+                    <div class="skill-chip"><i class="fas fa-network-wired"></i> CAN Bus</div>
+                    <div class="skill-chip"><i class="fas fa-exchange-alt"></i> UART / SPI / I2C</div>
+                    <div class="skill-chip"><i class="fas fa-wifi"></i> MODBUS</div>
+                </div></div>
             </div>
         </div>
     </section>
 
     <section id="projects">
         <div class="section-content">
-            <div class="section-title">
-                <h2>Featured Projects</h2>
-                <p class="subtitle">Check out some of my recent work</p>
-            </div>
+            <div class="section-title"><h2>Featured Projects</h2><p class="subtitle">Check out some of my recent work</p></div>
             <div class="project-filters">
                 <button class="filter-btn active" onclick="filterProjects('all')">All</button>
                 <button class="filter-btn" onclick="filterProjects('c-cpp')">C/C++</button>
@@ -495,10 +463,7 @@
 
     <section id="featured-posts">
         <div class="section-content">
-            <div class="section-title">
-                <h2>Featured Posts</h2>
-                <p class="subtitle">Recent updates from LinkedIn</p>
-            </div>
+            <div class="section-title"><h2>Featured Posts</h2><p class="subtitle">Recent updates from LinkedIn</p></div>
             <div class="linkedin-posts-grid">
                 <div class="linkedin-post-card"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7434718524847116288?collapsed=1" height="600" frameborder="0" allowfullscreen="" title="L post 3"></iframe></div>
                 <div class="linkedin-post-card"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7328827280875495425" height="600" frameborder="0" allowfullscreen="" title="LinkedIn Post 1"></iframe></div>
@@ -509,19 +474,17 @@
 
     <section id="contact">
         <div class="section-content">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p class="subtitle">I'd love to hear from you</p>
-            </div>
+            <div class="section-title"><h2>Get In Touch</h2><p class="subtitle">I'd love to hear from you</p></div>
             <div class="contact-container">
                 <div class="contact-form-section">
                     <h3>Send Me a Message</h3>
-                    <form action="https://formspree.io/f/mjkpkopz" method="POST" class="contact-form">
+                    <form id="contactForm" class="contact-form" action="javascript:void(0)" onsubmit="return false;">
                         <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
                         <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
                         <div class="form-group"><input type="text" name="subject" placeholder="Subject" required></div>
                         <div class="form-group"><textarea name="message" rows="6" placeholder="Your Message" required></textarea></div>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        <button type="submit" id="contactSendBtn" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        <p id="contactFeedback" style="display:none;align-items:center;gap:0.5rem;font-size:0.82rem;font-family:'Space Mono',monospace;margin-top:0.75rem;justify-content:center;"></p>
                     </form>
                     <div class="contact-email"><p>Or email me directly at: <a href="mailto:ma.shashwat@gmail.com">ma.shashwat@gmail.com</a></p></div>
                 </div>
@@ -542,8 +505,43 @@
         </div>
     </div>
 
+    <!-- ===== QUICK CONTACT DIALOG ===== -->
+    <div id="emailDialog" class="email-dialog-backdrop" onclick="closeEmailDialogBackdrop(event)">
+        <div class="email-dialog">
+            <div class="email-dialog-header">
+                <div class="email-dialog-title">
+                    <span class="email-dialog-dot"></span>
+                    <span>Get in touch</span>
+                </div>
+                <button class="email-dialog-close" onclick="closeEmailDialog()"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="emailDialogForm" class="email-dialog-form">
+                <div class="email-dialog-field">
+                    <label>Your email</label>
+                    <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+                <div class="email-dialog-field">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" required>Hi Shashwat,
+
+I came across your portfolio and would love to connect! Let's connect!
+
+Best,</textarea>
+                </div>
+                <div class="email-dialog-actions">
+                    <button type="button" class="email-dialog-cancel" onclick="closeEmailDialog()">Cancel</button>
+                    <button type="submit" class="email-dialog-send" id="dialogSendBtn">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </div>
+                <p class="email-dialog-feedback" id="dialogFeedback"></p>
+            </form>
+        </div>
+    </div>
+
     <script>
         function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+
         function filterProjects(category) {
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.filter-btn');
@@ -560,6 +558,7 @@
                 }
             });
         }
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -567,6 +566,7 @@
                 if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.getElementById('navLinks').classList.remove('active'); }
             });
         });
+
         const projectData = {
             modalAgri: { title: "GPS-Guided Autonomous Agricultural Robot", image: "images/portfolio/path_planning.mp4", isVideo: true, tags: ["Structured Text","Docker","GNSS","Path Planning","C++"], github: null, description: ["Architected a complete autonomy stack for a GPS-guided differential-drive agricultural robot, designed for precise row-following missions in orchard environments spanning 100m+.","Implemented GNSS-based localization achieving 45cm accuracy, fusing raw GPS data with heading estimates to maintain a reliable position fix throughout the mission.","Designed a Bézier curve trajectory generation pipeline with real-time optimization using the bisection method and Lagrange interpolation.","Integrated a Pure Pursuit controller for path tracking, continuously computing the lookahead point on the trajectory and issuing curvature commands to the differential drive."] },
             modalAMR: { title: "Autonomous AMR & Cobot Manufacturing Cell", image: "images/portfolio/amr_cobot.mp4", isVideo: true, tags: ["Node-RED","MODBUS"], github: null, description: ["Integrated two TECHMAN ROBOT cobots and a Fetch Robotics Freight100 AMR into a fully automated manufacturing cell using Node-RED as the central orchestration layer.","The workflow begins with the first cobot loading a part onto the AMR, which then navigates to a second station for assembly, and returns entirely without human intervention.","Implemented machine vision to detect the exact position of a cup holder relative to a label at distance, enabling precise pick-and-place operations.","Demonstrated seamless multi-robot coordination across different platforms using industrial protocols."] },
@@ -583,6 +583,7 @@
             modal11: { title: "IIoT Watch that Measures Pulse", image: "images/portfolio/SMARTWATCHGIF.gif", tags: ["ESP32","SEN-1157","OLED","WiFi"], github: null, description: ["Developed a smartwatch using ESP32 integrating a SEN-1157 Pulse Sensor for real-time heart rate monitoring.","Displayed heartbeat data on an SSD1306 OLED display via I2C communication.","Implemented WiFi connectivity to fetch and display the current time with seamless real-time updates."] },
             modal12: { title: "Payload System for Autonomous Drone", image: "images/payload_autonomous.png", tags: ["CAD","3D Printing","SolidWorks"], github: null, description: ["Redesigned the payload system using CAD and 3D printing, integrating Raspberry Pi, IMU, and battery for optimized weight distribution.","Fabricated the structure using carbon fiber for durability and lightweight performance.","Designed and manufactured casing using SolidWorks and a Creality 3D printer."] }
         };
+
         function openModal(modalId) {
             const data = projectData[modalId]; if (!data) return;
             const mediaEl = data.isVideo ? `<video src="${data.image}" autoplay loop muted playsinline style="width:100%;border-radius:8px;"></video>` : `<img src="${data.image}" alt="${data.title}" style="width:100%;border-radius:8px;">`;
@@ -592,8 +593,114 @@
         }
         function closeModal() { document.querySelector('#projectModal .modal-content').classList.remove('project-modal'); document.getElementById('projectModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
         window.onclick = function(event) { if (event.target == document.getElementById('projectModal')) closeModal(); }
+
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '0'; entry.target.style.transform = 'translateY(20px)'; entry.target.style.transition = 'all 0.6s ease'; setTimeout(() => { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }, 100); } }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.project-card, .skill-chip').forEach(el => observer.observe(el));
+
+        /* ── Email dialog ── */
+        function openEmailDialog() {
+            const fb = document.getElementById('dialogFeedback');
+            fb.className = 'email-dialog-feedback';
+            fb.textContent = '';
+            document.getElementById('dialogSendBtn').style.display = '';
+            document.getElementById('dialogSendBtn').disabled = false;
+            document.getElementById('dialogSendBtn').innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+            document.getElementById('emailDialog').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.querySelector('#emailDialogForm input[type="email"]').focus(), 100);
+        }
+        function closeEmailDialog() {
+            document.getElementById('emailDialog').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+        function closeEmailDialogBackdrop(e) {
+            if (e.target === document.getElementById('emailDialog')) closeEmailDialog();
+        }
+
+        document.getElementById('emailDialogForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('dialogSendBtn');
+            const fb = document.getElementById('dialogFeedback');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+            fb.className = 'email-dialog-feedback';
+            fb.textContent = '';
+
+            const formData = new FormData(this);
+            formData.append('subject', "Let's Connect — via Portfolio");
+
+            try {
+                const res = await fetch('https://formspree.io/f/mjkpkopz', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (res.ok) {
+                    btn.style.display = 'none';
+                    fb.className = 'email-dialog-feedback success show';
+                    fb.innerHTML = '<i class="fas fa-check-circle"></i> Message sent — I\'ll get back to you soon!';
+                    setTimeout(() => { closeEmailDialog(); this.reset(); }, 3000);
+                } else {
+                    const data = await res.json().catch(() => ({}));
+                    const msg = data?.errors?.[0]?.message || 'Submission failed. Please try again.';
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+                    fb.className = 'email-dialog-feedback error show';
+                    fb.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + msg;
+                }
+            } catch {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+                fb.className = 'email-dialog-feedback error show';
+                fb.innerHTML = '<i class="fas fa-exclamation-circle"></i> Network error — check your connection and try again.';
+            }
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSendBtn');
+            const fb = document.getElementById('contactFeedback');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+            fb.style.display = 'none';
+
+            try {
+                const res = await fetch('https://formspree.io/f/mjkpkopz', {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                    fb.style.display = 'flex';
+                    fb.style.color = 'var(--accent-cyan)';
+                    fb.innerHTML = '<i class="fas fa-check-circle"></i> Message sent — I\'ll get back to you soon!';
+                    this.reset();
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                        fb.style.display = 'none';
+                    }, 4000);
+                } else {
+                    const data = await res.json().catch(() => ({}));
+                    const msg = data?.errors?.[0]?.message || 'Submission failed. Please try again.';
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    fb.style.display = 'flex';
+                    fb.style.color = '#f87171';
+                    fb.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + msg;
+                }
+            } catch {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                fb.style.display = 'flex';
+                fb.style.color = '#f87171';
+                fb.innerHTML = '<i class="fas fa-exclamation-circle"></i> Network error — check your connection and try again.';
+            }
+        });
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEmailDialog(); });
     </script>
 
     <script>
@@ -676,230 +783,6 @@
         resize(); initParticles(); draw();
         window.addEventListener('resize', () => { cancelAnimationFrame(animId); resize(); initParticles(); routes=[]; draw(); });
     })();
-    </script>
-    <!-- ===== QUICK CONTACT DIALOG ===== -->
-    <div id="emailDialog" class="email-dialog-backdrop" onclick="closeEmailDialogBackdrop(event)">
-        <div class="email-dialog">
-            <div class="email-dialog-header">
-                <div class="email-dialog-title">
-                    <span class="email-dialog-dot"></span>
-                    <span>Get in touch</span>
-                </div>
-                <button class="email-dialog-close" onclick="closeEmailDialog()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <form id="emailDialogForm" class="email-dialog-form" action="https://formspree.io/f/mjkpkopz" method="POST">
-                <div class="email-dialog-field">
-                    <label>Your email</label>
-                    <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
-                </div>
-                <div class="email-dialog-field">
-                    <label>Message</label>
-                    <textarea name="message" rows="5" required>Hi Shashwat,
-
-I came across your portfolio and would love to connect! Let's connect!
-
-Best,</textarea>
-                </div>
-                <input type="hidden" name="subject" value="Let's Connect — via Portfolio">
-                <div class="email-dialog-actions">
-                    <button type="button" class="email-dialog-cancel" onclick="closeEmailDialog()">Cancel</button>
-                    <button type="submit" class="email-dialog-send" id="dialogSendBtn">
-                        <i class="fas fa-paper-plane"></i> Send
-                    </button>
-                </div>
-                <p class="email-dialog-success" id="dialogSuccess">
-                    <i class="fas fa-check-circle"></i> Message sent — I'll get back to you soon!
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <style>
-        .hero-email-pill { cursor: pointer; font-family: 'Space Mono', monospace; }
-
-        .email-dialog-backdrop {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            animation: dialogFadeIn 0.2s ease;
-        }
-        .email-dialog-backdrop.open { display: flex; }
-
-        @keyframes dialogFadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .email-dialog {
-            background: #060f1f;
-            border: 1px solid rgba(59,130,246,0.2);
-            border-radius: 10px;
-            padding: 1.75rem;
-            width: 100%;
-            max-width: 420px;
-            margin: 1rem;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(59,130,246,0.08);
-            animation: dialogSlideUp 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        @keyframes dialogSlideUp { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        .email-dialog-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.25rem;
-        }
-        .email-dialog-title {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.88rem;
-            color: var(--white);
-            letter-spacing: 0.04em;
-        }
-        .email-dialog-dot {
-            width: 7px; height: 7px;
-            border-radius: 50%;
-            background: var(--accent-cyan);
-            box-shadow: 0 0 8px rgba(6,182,212,0.7);
-            animation: sectionDotPulse 2s ease-in-out infinite;
-        }
-        .email-dialog-close {
-            background: none;
-            border: none;
-            color: #475569;
-            cursor: pointer;
-            font-size: 0.9rem;
-            padding: 0.25rem;
-            transition: color 0.2s;
-            line-height: 1;
-        }
-        .email-dialog-close:hover { color: var(--white); }
-
-        .email-dialog-form { display: flex; flex-direction: column; gap: 1rem; }
-
-        .email-dialog-field { display: flex; flex-direction: column; gap: 0.4rem; }
-        .email-dialog-field label {
-            font-size: 0.72rem;
-            color: #475569;
-            font-family: 'Space Mono', monospace;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-        .email-dialog-field input,
-        .email-dialog-field textarea {
-            background: rgba(59,130,246,0.04);
-            border: 1px solid rgba(59,130,246,0.15);
-            border-radius: 6px;
-            padding: 0.6rem 0.85rem;
-            color: var(--white);
-            font-size: 0.88rem;
-            font-family: 'DM Sans', sans-serif;
-            transition: border-color 0.2s, background 0.2s;
-            resize: vertical;
-        }
-        .email-dialog-field input:focus,
-        .email-dialog-field textarea:focus {
-            outline: none;
-            border-color: rgba(59,130,246,0.45);
-            background: rgba(59,130,246,0.07);
-        }
-        .email-dialog-field textarea { min-height: 130px; line-height: 1.6; }
-
-        .email-dialog-actions {
-            display: flex;
-            gap: 0.6rem;
-            justify-content: flex-end;
-            margin-top: 0.25rem;
-        }
-        .email-dialog-cancel {
-            padding: 0.5rem 1rem;
-            background: none;
-            border: 1px solid rgba(59,130,246,0.18);
-            border-radius: 5px;
-            color: #475569;
-            font-size: 0.82rem;
-            font-family: 'Space Mono', monospace;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .email-dialog-cancel:hover { border-color: rgba(59,130,246,0.35); color: var(--soft-white); }
-
-        .email-dialog-send {
-            padding: 0.5rem 1.2rem;
-            background: var(--primary-color);
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 0.82rem;
-            font-family: 'Space Mono', monospace;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            transition: all 0.2s;
-        }
-        .email-dialog-send:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(59,130,246,0.35); }
-        .email-dialog-send:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-        .email-dialog-success {
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.82rem;
-            color: var(--accent-cyan);
-            font-family: 'Space Mono', monospace;
-            text-align: center;
-            justify-content: center;
-            padding: 0.5rem 0 0;
-        }
-        .email-dialog-success.show { display: flex; }
-    </style>
-
-    <script>
-        function openEmailDialog() {
-            document.getElementById('emailDialog').classList.add('open');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => document.querySelector('.email-dialog-field input[type="email"]').focus(), 100);
-        }
-        function closeEmailDialog() {
-            document.getElementById('emailDialog').classList.remove('open');
-            document.body.style.overflow = 'auto';
-        }
-        function closeEmailDialogBackdrop(e) {
-            if (e.target === document.getElementById('emailDialog')) closeEmailDialog();
-        }
-
-        document.getElementById('emailDialogForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('dialogSendBtn');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
-            try {
-                const res = await fetch('https://formspree.io/f/mjkpkopz', {
-                    method: 'POST',
-                    body: new FormData(this),
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (res.ok) {
-                    btn.style.display = 'none';
-                    document.getElementById('dialogSuccess').classList.add('show');
-                    setTimeout(() => { closeEmailDialog(); btn.style.display = ''; btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send'; document.getElementById('dialogSuccess').classList.remove('show'); }, 2800);
-                } else {
-                    btn.disabled = false;
-                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
-                    alert('Something went wrong — please try again.');
-                }
-            } catch { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send'; }
-        });
-
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEmailDialog(); });
     </script>
 </body>
 </html>
